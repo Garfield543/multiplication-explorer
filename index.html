@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>乘法小小探險家</title>
+<style>
+:root{color-scheme:light;--ink:#182e2c;--muted:#4e655b;--green:#145747;--mint:#deefe3;--paper:#fffdf6;--line:#cbdacf;--gold:#ffe6a1}*{box-sizing:border-box}body{margin:0;background:#edf4e9;color:var(--ink);font:500 1.08rem/1.55 "Noto Sans TC","Microsoft JhengHei",sans-serif;min-height:100dvh}button,input,select{font:inherit;color:inherit}button,select{min-height:56px;padding:.55rem .95rem;border:2px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;touch-action:manipulation;font-weight:750}button:hover:not(:disabled){border-color:var(--green);background:#eff7ef}button.primary{background:var(--gold);border-color:#b38935;box-shadow:0 3px 0 #bb9445}button:disabled{opacity:.64;cursor:default}button[aria-pressed=true],.marked{border-color:#145747!important;box-shadow:0 0 0 3px #91c4a7;background:var(--mint)}:focus-visible{outline:3px solid #2a60b1;outline-offset:3px}header{background:#fffdf6;border-bottom:1px solid var(--line)}.bar,main{width:min(1100px,calc(100% - 32px));margin:auto}.bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.65rem 0;flex-wrap:wrap}.brand{font-weight:900;font-size:1.2rem}.row{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem}.bar button{min-height:56px}main{padding:1.4rem 0 3rem}.panel{padding:clamp(1rem,4vw,2.6rem);border:1px solid var(--line);background:var(--paper);border-radius:25px;box-shadow:0 8px 28px #17372112}.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center;min-height:420px}.hero-art{width:100%;max-height:310px}.hero p:first-child,.eyebrow{color:var(--green);font-weight:850}h1,h2,p{margin:0 0 .7rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.25;letter-spacing:-.035em}h2{font-size:clamp(1.5rem,4vw,2.15rem);line-height:1.55}.sub{font-size:1.25rem;color:var(--muted)}.map{margin:1rem 0;display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}.map button{padding:.55rem .45rem}.meters{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;color:var(--muted)}progress{accent-color:var(--green);display:block;width:100%;height:12px}.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.85rem;margin:1rem 0}.basket{display:grid;align-content:space-between;gap:.35rem;min-width:0;padding:.6rem;border:2px solid #d3ccac;border-radius:17px;text-align:center;background:#fbf4db}.tray{min-height:64px;display:flex;align-content:center;justify-content:center;flex-wrap:wrap;gap:.2rem;padding:.4rem;background:repeating-linear-gradient(0deg,#e3b06d 0 5px,#f0c88c 5px 9px);border:2px solid #966537;border-radius:8px 8px 18px 18px}.basket .row{justify-content:center}.token{width:38px;height:38px;vertical-align:middle}.fruit{min-width:56px;padding:.25rem;touch-action:none}.ghost{display:inline-block;border:2px dashed #774d26;border-radius:50%;width:32px;height:32px}.drop{border-color:#145747;background:#dcefe1}.pool{padding:.65rem;border-radius:12px;background:#e8f2f9;margin-top:1rem}.answer{margin:1rem 0}.num{min-width:56px;font-size:1.36rem;font-variant-numeric:tabular-nums}.numeric{max-width:140px;min-height:56px;border:2px solid var(--line);border-radius:12px;padding:.4rem}.message{background:#e5f2e8;border-left:4px solid #418166;padding:.6rem .8rem;border-radius:7px;margin:.8rem 0}.message:empty{display:none}.help{background:#fff0c6;padding:.75rem;border-radius:12px;margin:.75rem 0}.equation{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:1.55rem;margin:.8rem 0}.tools{margin-top:1rem}.tools button{font-size:1rem}summary{cursor:pointer;min-height:42px;font-weight:bold}details{margin:.75rem 0}dialog{border:2px solid var(--line);border-radius:20px;padding:1.3rem;background:var(--paper);color:var(--ink);width:min(600px,calc(100% - 24px));max-height:90dvh}dialog::backdrop{background:#182e2c88}dialog label{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.55rem 0}input[type=checkbox]{width:23px;height:23px}canvas{width:100%;height:210px;display:block;background:white;border:2px solid var(--line);border-radius:12px;touch-action:none;margin:.6rem 0}ruby{ruby-align:center}rt{font-size:.45em;color:#365b51}body:not(.zy) rt{display:none}.pop{animation:appear .24s ease-out}@keyframes appear{from{transform:scale(.96);opacity:.6}to{transform:scale(1);opacity:1}}body.still *{animation:none!important}@media(prefers-reduced-motion:reduce){*{animation:none!important}}@media(max-width:680px){.hero{grid-template-columns:1fr;min-height:0}.hero-art{max-height:180px}.map{grid-template-columns:1fr 1fr}.board{grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr))}}@media(max-width:380px){.bar,main{width:calc(100% - 18px)}.meters{grid-template-columns:1fr}.panel{padding:.8rem}}
+</style>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+<symbol id="apple" viewBox="0 0 48 48"><path d="M24 14Q22 7 27 4" fill="none" stroke="#65402b" stroke-width="3"/><path d="M25 9Q32 0 40 5Q35 14 25 11" fill="#457646"/><path d="M24 16C4 4 1 30 15 43q5 4 9 0q5 4 10 0C48 30 44 5 24 16" fill="#bf493e" stroke="#8e3026" stroke-width="1.6"/><path d="M13 22q-4 5-1 10" fill="none" stroke="#ffb8a2" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="flower" viewBox="0 0 48 48"><path d="M24 22v23m0-8q-7-8-13-6m13 9q6-8 13-7" stroke="#397450" stroke-width="3" fill="none"/><path d="M24 8c6-12 16 0 9 6 13-3 13 11 1 11 6 10-7 15-10 4-5 10-17 4-10-4C2 25 4 12 14 14 8 4 19 1 24 8Z" fill="#b7618e"/><circle cx="24" cy="19" r="6" fill="#ffe18a"/></symbol>
+<symbol id="wheel" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="#33434f"/><circle cx="24" cy="24" r="11" fill="#9eb5be"/><circle cx="24" cy="24" r="4" fill="#33434f"/></symbol>
+<symbol id="snack" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="#bf723c" stroke="#854522" stroke-width="2"/><path d="m11 17 23 6-19 4 17 7" stroke="#fff0ae" stroke-width="3" fill="none"/><path d="m20 13 3 2m4 15 3 2m5-14 3 1" stroke="#376745" stroke-width="2"/></symbol>
+<symbol id="yogurt" viewBox="0 0 48 48"><path d="M8 14h32l-5 29H13z" fill="#c5a6d6" stroke="#734883" stroke-width="2"/><rect x="6" y="9" width="36" height="8" rx="3" fill="#f9deed"/><circle cx="24" cy="28" r="5" fill="#8c428a"/></symbol>
+</svg>
+<header><div class="bar"><div class="brand">乘法小小探險家</div><div class="row" id="bar"></div></div></header>
+<main id="app"></main>
+<dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const units=[2,5,4,8];
+const labels=['建立一組','倍數魔法','乘法變身術','自由探索'];
+const themes={
+  apple:['蘋果','顆','籃','籃子','裝'],
+  flower:['花','朵','束','花束','放'],
+  wheel:['輪子','個','輛','小車','有'],
+  snack:['章魚燒','顆','盒','點心盒','裝'],
+  yogurt:['優格','杯','盤','盤子','放']
+};
+const defaults={advanced:false,zy:false,auto:false,slow:false,still:false,lock:true,view:'both',max:9,unit:2};
+const key='multiply-explorer-v1';
+let prefs={...defaults}, done={}, saved=null, visited=false, speechError='', recognition=null;
+let s=null, message='', selectedFruit=null, previousMove=null, timer=0, drag=null, ignoreClickUntil=0;
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const t=value=>annotate(esc(value));
+const btn=(label,action,attrs='')=>'<button type="button" data-act="'+action+'" '+attrs+'>'+t(label)+'</button>';
+const glyph=id=>'<svg class="token" aria-hidden="true" viewBox="0 0 48 48"><use href="#'+id+'"></use></svg>';
+const numbered=(start,end)=>Array.from({length:end-start+1},(_,i)=>i+start);
+const at=(x,min,max)=>Number.isInteger(x)&&x>=min&&x<=max;
+const limits=()=>prefs.advanced||s?.station===3?prefs.max:Math.min(5,prefs.max);
+const make=(station=0,unit=2)=>({
+  station,unit,step:0,groups:1,built:0,fruit:Array(6).fill(0),answer:'',cards:[null,null,null],slot:0,
+  solved:false,reveal:0,highlight:-1,hint:0,hide:false
+});
+const lengths=[5,3,7,8];
+const taskKey=()=>s.station===3?'3:'+s.unit:String(s.station);
+function count(station,unit){return (done[station===3?'3:'+unit:String(station)]||[]).length}
+function unlocked(){return labels.slice(0,3).every((_,i)=>count(i)===lengths[i])}
+function allowed(station){return !prefs.lock||station===0||(station===3?unlocked():count(station-1)===lengths[station-1])}
+function validState(value){
+  if(!value||!at(value.station,0,3)||!units.includes(value.unit)||!at(value.step,0,lengths[value.station]-1)||!at(value.groups,1,9))return null;
+  const clean=make(value.station,value.unit);
+  clean.built=at(value.built,0,value.unit+1)?value.built:0;
+  if(value.station===0&&Array.isArray(value.fruit)&&value.fruit.length===6&&value.fruit.every(n=>at(n,0,2)))clean.fruit=value.fruit;
+  Object.assign(clean,{step:value.step,groups:value.groups,solved:value.solved===true,reveal:at(value.reveal,0,3)?value.reveal:0});
+  if(clean.station===0&&clean.step>0&&clean.fruit.filter(n=>n===1).length!==2)return make();
+  if(clean.station===0&&clean.step>2&&clean.fruit.filter(n=>n===2).length!==2)return make();
+  return clean;
+}
+try{
+  const data=JSON.parse(localStorage.getItem(key));
+  if(data&&typeof data==='object'){
+    for(const name of Object.keys(defaults)){
+      const value=data.prefs?.[name];
+      if(typeof defaults[name]==='boolean'&&typeof value==='boolean')prefs[name]=value;
+    }
+    if(at(data.prefs?.max,1,9))prefs.max=data.prefs.max;
+    if(units.includes(data.prefs?.unit))prefs.unit=data.prefs.unit;
+    if(['both','pictures','numbers'].includes(data.prefs?.view))prefs.view=data.prefs.view;
+    for(const [station,length] of lengths.entries()){
+      for(const unit of station===3?units:[2]){
+        const k=station===3?'3:'+unit:String(station);
+        if(Array.isArray(data.done?.[k]))done[k]=[...new Set(data.done[k].filter(n=>at(n,0,length-1)))];
+      }
+    }
+    saved=validState(data.saved);
+    visited=Boolean(saved);
+  }
+}catch{}
+function save(){
+  if(s){saved=validState(s);visited=Boolean(saved)}
+  try{localStorage.setItem(key,JSON.stringify({prefs,done,saved}))}catch{}
+}
+function finish(text){
+  stop();
+  const k=taskKey();
+  done[k]=[...new Set([...(done[k]||[]),s.step])];
+  s.solved=true; s.hint=0; message=text;save();render();
+  document.querySelector('[data-act="next"]')?.focus({preventScroll:true});
+}
+function stop(){
+  clearTimeout(timer); timer=0;
+  window.speechSynthesis?.cancel();
+  recognition?.abort(); recognition=null;
+}
+function resetTask(){
+  stop(); Object.assign(s,{answer:'',cards:[null,null,null],slot:0,solved:false,reveal:0,highlight:-1,hint:0});
+  message='';speechError='';selectedFruit=null;previousMove=null;previousCards=null;
+}
+function enter(station,unit=2){
+  stop();s=make(station,unit); if(station===1)s.groups=Math.min(3,limits());
+  if(station===2)s.groups=3;
+  resetTask();save();render(true);autoRead();
+}
+function home(){
+  stop(); save();s=null;message='';render();
+}
+function stage(){
+  const {station,step}=s;
+  const transfer=station===2&&step===6;
+  const unit=transfer?4:station===3?s.unit:2;
+  const theme=transfer?'yogurt':station===3?({2:'apple',5:'flower',4:'wheel',8:'snack'}[unit]):'apple';
+  const [item,measure,group,container,verb]=themes[theme];
+  const groups=station===2?3:s.groups;
+  return {unit,theme,item,measure,group,container,verb,groups,total:unit*groups};
+}
+function context(m){
+  return '每'+m.group+m.verb+' '+m.unit+' '+m.measure+m.item+'，有 '+m.groups+' '+m.group+'。';
+}
+function task(){
+  const m=stage(), step=s.step;
+  const contextTotal=context(m)+'一共有幾'+m.measure+'？';
+  const formula=context(m)+'請拼出乘法算式。';
+  const question=(text,kind,answer)=>({...m,text,kind,answer});
+  if(s.station===0)return [
+    question('請放 2 顆蘋果進籃子。','place',2),
+    question('第 1 籃有幾顆蘋果？','number',2),
+    question('再做一籃一樣多的蘋果吧！','place',2),
+    question('一共有幾籃？','number',2),
+    question('每籃都一樣多嗎？','yes',1)
+  ][step];
+  if(s.station===1)return [
+    question(contextTotal,'number',m.total),
+    question('有 '+m.groups+' 個 2。這是 2 的幾倍？','number',m.groups),
+    question('再加一籃，會多幾顆蘋果？','compare',2)
+  ][step];
+  if(s.station===2)return [
+    question('每籃有幾顆蘋果？','number',2),
+    question('一共有幾籃？','number',3),
+    question('一共有幾顆蘋果？','number',6),
+    question('點一點連加算式裡的數字，找出它是哪一籃。','add',null),
+    question('看看乘法算式。每個數字代表什麼？','demo',null),
+    question(formula,'formula',null),
+    question(formula,'formula',null)
+  ][step];
+  return [
+    question('請把 '+m.unit+' '+m.measure+m.item+'放進第一'+m.group+'。','build',m.unit),
+    question('按「再加一'+m.group+'」，做出一樣多的'+m.container+'。','copy',null),
+    question(contextTotal,'number',m.total),
+    question('點一點連加算式裡的數字，看看它代表哪一'+m.group+'。','add',null),
+    question('有 '+m.groups+' 個 '+m.unit+'。這是 '+m.unit+' 的幾倍？','number',m.groups),
+    question(formula,'formula',null),
+    question('再多一'+m.group+'，會多幾'+m.measure+m.item+'？','compare',m.unit),
+    question('買了 '+m.groups+' '+m.group+(m.theme==='apple'?'蘋果':m.theme==='snack'?'章魚燒':m.theme==='flower'?'花':m.container)+'。'+context(m)+'一共有幾'+m.measure+'？','number',m.total)
+  ][step];
+}
+function next(){
+  if(!s.solved)return;
+  if(s.step+1<lengths[s.station]){
+    s.step++;resetTask();save();render(true);autoRead();
+  }else if(s.station<2)enter(s.station+1);
+  else if(s.station===2)enter(3);
+  else home();
+}
+function back(){
+  if(s.step>0){
+    s.step--;
+    if(s.station===0&&s.step<2)s.fruit=s.fruit.map(n=>n===2?0:n);
+    resetTask();save();render(true);autoRead();
+  }else if(s.station>0)enter(s.station-1);
+  else home();
+}
+function rabbit(){return '<svg class="hero-art" role="img" aria-label="兔兔和蘋果籃" viewBox="0 0 400 280"><ellipse cx="200" cy="224" rx="181" ry="42" fill="#d4e9d2"/><circle cx="200" cy="132" r="124" fill="#f7eac4"/><path d="M141 122c-33-40-51-113-22-111 25 1 43 64 49 103m28-3c4-48 12-104 38-100 27 5 13 75-9 118" fill="#fefcf1" stroke="#26483e" stroke-width="4"/><path d="M143 84c-17-18-26-47-21-51 7-3 17 22 26 46m62-1c3-25 13-48 20-44 7 4 0 28-10 48" fill="#e8aaa5"/><ellipse cx="177" cy="220" rx="68" ry="48" fill="#fffdf5" stroke="#26483e" stroke-width="4"/><ellipse cx="179" cy="151" rx="77" ry="59" fill="#fffdf5" stroke="#26483e" stroke-width="4"/><circle cx="149" cy="145" r="6" fill="#26483e"/><circle cx="208" cy="145" r="6" fill="#26483e"/><ellipse cx="132" cy="163" rx="13" ry="7" fill="#ebb2a8"/><ellipse cx="225" cy="163" rx="13" ry="7" fill="#ebb2a8"/><path d="M171 155q8-6 16 0l-8 8z" fill="#a64c49"/><path d="M165 171q8 9 14-7 6 16 15 7" fill="none" stroke="#26483e" stroke-width="2.5" stroke-linecap="round"/><path d="M241 207q13-66 66-64 43 3 52 64" fill="none" stroke="#9d632d" stroke-width="11"/><use href="#apple" x="245" y="160" width="50" height="50"/><use href="#apple" x="289" y="156" width="49" height="49"/><use href="#apple" x="314" y="173" width="42" height="42"/><path d="M234 200h132l-13 47q-2 9-12 9h-82q-10 0-12-9z" fill="#d9a260" stroke="#885728" stroke-width="4"/><path d="M244 216h111m-107 13h103m-99 13h94" stroke="#f7d39b" stroke-width="4"/></svg>'}
+function map(){
+  return '<nav class="map" aria-label="學習路線">'+labels.map((label,i)=>i===3&&!allowed(i)?'':btn((i<3?(i+1)+'　':'')+label+(i<3&&count(i)===lengths[i]?' ✓':''),'station:'+i,(!allowed(i)?'disabled ':'')+(s?.station===i?'aria-current="step"':'') )).join('')+'</nav>';
+}
+function renderHero(){
+  return '<section class="hero panel"><div><p>'+t('兔兔的點心任務')+'</p><h1>'+t('乘法小小探險家')+'</h1><p class="sub">'+t('一起動手玩，發現乘法的小祕密！')+'</p><div class="row">'+btn('開始探索','start','class="primary"')+(visited?btn('繼續學習','resume'):'')+btn('操作說明','instructions')+'</div></div>'+rabbit()+'</section>'+map();
+}
+function fruitButton(id){
+  return '<button class="fruit" type="button" data-fruit="'+id+'" data-act="fruit:'+id+'" aria-label="選蘋果 '+(id+1)+'" aria-pressed="'+(selectedFruit===id)+'">'+glyph('apple')+'</button>';
+}
+function basket(m,i,amount,editable=false){
+  const withPictures=prefs.view!=='numbers'&&!s.hide||editable;
+  const withNumber=prefs.view!=='pictures'&&!s.hide||editable;
+  const pending=editable&&(!prefs.advanced||s.hint>=1)?Math.max(0,m.unit-amount):0;
+  const itemText=amount+' '+m.measure+m.item;
+  const decorativeTokens=withPictures?glyph(m.theme).repeat(amount)+'<i class="ghost" aria-hidden="true"></i>'.repeat(pending):'';
+  const label=s.station===0?'第 '+(i+1)+' 籃':m.theme==='wheel'?'第 '+(i+1)+' 輛車':'第 '+(i+1)+' '+m.group;
+  const hasChoice=s.station!==0||editable;
+  return '<div class="basket '+(s.highlight===i?'marked ':'')+(s.station===0&&s.hint>=2&&editable?'marked':'')+'" data-basket="'+i+'"><strong>'+t(label)+'</strong><div class="tray" role="img" aria-label="'+esc(withPictures?itemText:'物品圖已隱藏')+'">'+decorativeTokens+'</div>'+
+    (withNumber?'<span>'+t(itemText)+'</span>':'')+
+    (hasChoice?'<div class="row">'+(editable&&s.station===0?btn('放入','drop:'+i,'aria-label="放入蘋果到第 '+(i+1)+' 籃"')+btn('取出','take:'+i,amount?'':'disabled'):
+    editable?btn('放 1 '+m.measure,'build:1')+btn('取出','build:-1',amount?'':'disabled'):btn('看這一'+m.group,'highlight:'+i))+'</div>':'')+'</div>';
+}
+function board(m){
+  if(s.station===0){
+    const visible=s.step>=2?2:1;
+    const active=s.step===0?0:s.step===2?1:-1;
+    const pool=s.fruit.map((n,i)=>n===0?fruitButton(i):'').join('');
+    return (active>=0&&!s.solved?'<div class="pool row">'+pool+'</div>':'')+'<div class="board">'+numbered(0,visible-1).map(i=>basket(m,i,s.fruit.filter(n=>n===i+1).length,active===i&&!s.solved)).join('')+'</div>';
+  }
+  const editable=m.kind==='build'&&!s.solved;
+  const amount=m.kind==='build'?s.built:m.unit;
+  return '<div class="board">'+numbered(0,m.groups-1).map(i=>basket(m,i,amount,editable)).join('')+'</div>';
+}
+function addition(m,partial=false){
+  const n=partial?Math.max(1,m.groups-1):m.groups;
+  return '<div class="equation">'+numbered(0,n-1).map(i=>btn(m.unit,'highlight:'+i,'class="num" aria-label="對應第 '+(i+1)+' '+m.group+'"')).join('<span>＋</span>')+(partial?'<span>…</span>':'<strong>＝ '+m.total+'</strong>')+'</div>';
+}
+function equation(m){
+  return '<p class="equation"><strong>'+m.unit+' × '+m.groups+' ＝ '+m.total+'</strong></p><p>'+t(m.unit+' 是每'+m.group+'數量，'+m.groups+' 是'+m.group+'數，'+m.total+' 是總數。')+'</p>';
+}
+function numberCards(m){
+  if(m.kind==='yes')return btn('一樣多','answer:1','aria-pressed="'+(s.answer==='1')+'"')+btn('不一樣多','answer:0','aria-pressed="'+(s.answer==='0')+'"');
+  const vals=[...new Set([Math.max(0,m.answer-1),m.answer,m.answer+1,m.answer+2])];
+  const shift=(m.answer+s.step+s.station)%vals.length;
+  vals.push(...vals.splice(0,shift));
+  return vals.map(n=>btn(n,'answer:'+n,'class="num" aria-pressed="'+(s.answer===String(n))+'"')).join('');
+}
+function formulaCards(m){
+  const names=['每'+m.group+'數量',m.group+'數','總數'];
+  const vals=[...new Set([m.unit,m.groups,m.total,m.total+1,Math.max(1,m.unit-1)])].sort((a,b)=>a-b);
+  return '<div class="equation">'+s.cards.map((value,i)=>btn(value??'□','slot:'+i,'class="num" aria-label="'+names[i]+' '+(value??'空白')+'" aria-pressed="'+(s.slot===i)+'"')).join('~').replace('~','<span>×</span>').replace('~','<span>＝</span>')+'</div><p>'+t('正在填：'+names[s.slot])+'</p><div class="row">'+vals.map(n=>btn(n,'card:'+n,'class="num"')).join('')+btn('復原','cardundo')+btn('移除','remove')+btn('清除','clearcards')+'</div>';
+}
+function controls(m){
+  if(s.solved){
+    let recap='';
+    if(m.kind==='formula'||m.kind==='demo')recap=equation(m);
+    if(s.station===1&&s.step<2)recap=representation(m);
+    if(m.kind==='add')recap=addition(m)+'<p>'+t('有 '+m.groups+' 個 '+m.unit+'，是 '+m.unit+' 的 '+m.groups+' 倍。')+'</p>';
+    if(m.kind==='compare')recap='<p>'+t('多一'+m.group+'，就多 '+m.unit+' '+m.measure+m.item+'。')+'</p>';
+    return recap+btn(s.step+1===lengths[s.station]?(s.station===3?'回到首頁':s.station===2?'進入自由探索':'下一站'):'下一步','next','class="primary"');
+  }
+  if(m.kind==='add')return addition(m)+btn('我找到了','observe','class="primary"');
+  if(m.kind==='demo')return equation(m)+btn('讀算式','readsums')+btn('試著拼算式','observe','class="primary"')+
+    '<details><summary>'+t('算式裡的名稱')+'</summary>'+t('每籃數量叫被乘數，籃數叫乘數，相乘後的總數叫積。')+'</details>';
+  if(m.kind==='copy'){
+    const limit=Math.min(limits(),9);
+    return '<div class="row">'+btn('少一'+m.group,'groups:-1',s.groups<=1?'disabled':'')+btn('再加一'+m.group,'groups:1',s.groups>=limit?'disabled':'')+btn('開始預測','check','class="primary"')+'</div>';
+  }
+  const alter=s.station===1&&s.step<=1||s.station===3&&s.step===7;
+  return (alter?'<div class="row">'+btn('少一'+m.group,'groups:-1',m.groups<=1?'disabled':'')+btn('再加一'+m.group,'groups:1',m.groups>=limits()?'disabled':'')+'</div>':'')+
+    (m.kind==='formula'?formulaCards(m):['number','compare','yes'].includes(m.kind)?'<div class="row answer">'+numberCards(m)+(m.kind!=='yes'?'<label>'+t('輸入答案')+' <input class="numeric" id="numeric" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="'+esc(s.answer)+'"></label>'+btn('說答案','voice'):'')+'</div>':'')+
+    '<div class="row answer">'+btn('檢查答案','check','class="primary"')+(m.kind==='place'||m.kind==='build'?btn('復原','undo'):m.kind==='number'&&s.station!==0?btn('一起數一數','count'):'')+'</div>';
+}
+function representation(m){
+  return '<div class="help">'+(s.reveal>=2||s.station===1&&s.step===1?'<p>'+t('有 '+m.groups+' 個 '+m.unit+'。')+'</p>':'')+addition(m)+
+  (s.reveal>=3||s.station===1&&s.step>=1?'<p>'+t(m.unit+' 的 '+m.groups+' 倍是 '+m.total+'。')+'</p>':btn(s.reveal===1?'看有幾個一樣多':'看倍數','reveal'))+'</div>';
+}
+function hintPanel(m){
+  if(!s.hint)return '';
+  const kind=m.kind;
+  const line=kind==='place'||kind==='build'?'先看這'+m.group+'需要放幾'+m.measure+'。':kind==='formula'?'先找每'+m.group+'數量，再找有幾'+m.group+'。':kind==='compare'?'想一想，新增的一'+m.group+'有幾'+m.measure+'？':m.kind==='yes'?'數一數兩個籃子裡的蘋果。':'再看一次圖，數一數。';
+  let support='';
+  if(s.hint>=2)support='<p>'+t(kind==='place'||kind==='build'?'看亮框裡的空位。':kind==='formula'?'左邊填每'+m.group+'數量，中間填'+m.group+'數。':kind==='compare'?'只數新增的那一'+m.group+'。':'可以點選每一'+m.group+'，幫自己數數。')+'</p>';
+  if(s.hint>=3)support+=kind==='place'||kind==='build'?'<p>'+t('先放入 1 '+m.measure+'，再接著放。')+'</p>':m.groups>1&&s.station!==0?addition(m,true):'<p>'+t('可以用手指一個一個點。')+'</p>';
+  return '<aside class="help"><strong>'+t('提示 '+s.hint+'／4')+'</strong><p>'+t(line)+'</p>'+support+(s.hint===4?btn('看另一個示範','example'):'')+'</aside>';
+}
+function render(focus=false){
+  document.body.classList.toggle('zy',prefs.zy);
+  document.body.classList.toggle('still',prefs.still);
+  $('bar').innerHTML=(s?btn('首頁','home'):'')+btn('注音','zy','aria-pressed="'+prefs.zy+'"')+btn('學習設定','settings')+btn('老師模式','teacher');
+  if(!s)$('app').innerHTML=renderHero();
+  else{
+    const m=task(), core=lengths.slice(0,3).reduce((sum,_,i)=>sum+count(i),0);
+    const stats='<div class="meters"><div>'+t('概念進度')+' '+core+'／15<progress aria-label="概念進度" max="15" value="'+core+'"></progress></div><div>'+t('站內進度')+' '+count(s.station,s.unit)+'／'+lengths[s.station]+'<progress aria-label="站內進度" max="'+lengths[s.station]+'" value="'+count(s.station,s.unit)+'"></progress></div></div>';
+    const choose=s.station===3?'<div class="row">'+units.map(unit=>btn(unit+' 的乘法','unit:'+unit,'aria-pressed="'+(unit===s.unit)+'"')).join('')+'</div>':'';
+    $('app').innerHTML=map()+stats+'<section class="panel" aria-labelledby="prompt"><p class="eyebrow">'+t(s.station===3?s.unit+' 的乘法':labels[s.station])+'</p>'+choose+
+      '<h2 id="prompt" tabindex="-1">'+t(m.text)+'</h2><div class="row">'+btn('讀題','read')+btn('停止朗讀','stop')+btn('我需要幫忙','hint')+(prefs.advanced&&s.station!==0&&m.kind!=='build'?btn(s.hide?'顯示圖像':'隱藏圖像','hide'):'')+'</div>'+
+      hintPanel(m)+board(m)+(s.reveal&&s.station===1&&!s.solved?representation(m):'')+
+      '<div class="message" id="feedback" role="status">'+t(message)+'</div><p role="status" id="speech">'+t(speechError)+'</p>'+controls(m)+
+      '<div class="row tools">'+btn('上一步','back')+btn('畫圖','draw')+btn('詞語解釋','words')+'</div></section>';
+    if(focus)$('prompt').focus();
+  }
+  if(prefs.zy)document.querySelector('.brand').innerHTML=t('乘法小小探險家');
+  else document.querySelector('.brand').textContent='乘法小小探險家';
+}
+
+function moveTo(i){
+  if(s.solved||s.station!==0||i!==(s.step===0?0:s.step===2?1:-1))return;
+  const id=selectedFruit??s.fruit.indexOf(0);
+  if(id<0||s.fruit[id]!==0)return;
+  previousMove=[...s.fruit]; s.fruit[id]=i+1;selectedFruit=null;
+  const amount=s.fruit.filter(n=>n===i+1).length;
+  message=amount>2?(i===0?'數數第 1 籃裡的蘋果。':'看看兩個籃子，是不是一樣多？'):amount===2?'這一籃有 2 顆了。請檢查。':'';
+  save();render();
+  document.querySelector('[data-act="drop:'+i+'"]')?.focus({preventScroll:true});
+}
+function check(){
+  if(s.solved)return;
+  const m=task();
+  let correct=false;
+  let feedback='再試一次。';
+  if(m.kind==='place'){
+    correct=s.fruit.filter(n=>n===(s.step===0?1:2)).length===2;
+    feedback=s.step===0?'數數第 1 籃裡的蘋果。':'看看兩個籃子，是不是一樣多？';
+  }else if(m.kind==='build'){
+    correct=s.built===m.unit;
+  }else if(m.kind==='copy'){
+    correct=s.groups>=2||limits()===1;
+    feedback='先試試再加一組。';
+  }else if(m.kind==='formula'){
+    correct=s.cards.every((n,i)=>n===[m.unit,m.groups,m.total][i]);
+    if(!correct&&s.cards[0]===m.groups&&s.cards[1]===m.unit&&s.cards[2]===m.total){
+      feedback='你算出的總數也是 '+m.total+'！再看看這題，每'+m.group+'有幾'+m.measure+'？一共有幾'+m.group+'？';
+    }
+  }else{
+    if(!s.answer){message=m.kind==='yes'?'請選一個答案。':'選一張數字卡，或輸入答案。';render();return}
+    correct=Number(s.answer)===m.answer;
+  }
+  if(correct){
+    if(s.station===1&&s.step===0)s.reveal=1;
+    if(m.kind==='compare'&&s.station===1&&s.groups<limits())s.groups++;
+    if(m.kind==='compare'&&s.station===3&&s.groups<limits())s.groups++;
+    const praise=m.kind==='formula'?'你把等量分組寫成乘法了！':
+      m.kind==='compare'?'你發現多一'+m.group+'會多多少了！':
+      s.station===0&&s.step===4?'你找到兩籃一樣多的蘋果了！':
+      s.station===2&&s.step===6?'你發現乘法的小祕密了！':'做到了！';
+    finish(praise);return;
+  }
+  message=feedback;s.hint=Math.min(4,s.hint+1);
+  if(s.hint>=2&&s.station!==0)s.highlight=0;
+  render();
+}
+function speak(text){
+  if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined'){speechStatus('此瀏覽器無法朗讀，請看題目文字。');return}
+  const voices=speechSynthesis.getVoices();
+  const voice=voices.find(v=>/^zh[-_]TW$/i.test(v.lang))||voices.find(v=>/^zh/i.test(v.lang));
+  if(voices.length&&!voice){speechStatus('裝置沒有中文語音，請看題目文字。');return}
+  speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(text.replaceAll('×','乘以').replaceAll('＝','等於').replaceAll('＋','加'));
+  utterance.lang='zh-TW';if(voice)utterance.voice=voice;
+  utterance.rate=prefs.slow ? 0.72 : 0.95;
+  utterance.onerror=event=>{if(!['canceled','interrupted'].includes(event.error))speechStatus('目前無法朗讀，請看題目文字。')};
+  speechSynthesis.speak(utterance);
+}
+function speechStatus(text){
+  speechError=text;
+  if($('speech'))$('speech').innerHTML=t(text);
+  if($('dialog-status'))$('dialog-status').innerHTML=t(text);
+}
+function autoRead(){if(prefs.auto&&s)speak(task().text)}
+function parseSpoken(text){
+  const plain=text.trim().replace(/^[　 ]+|[。！. ]+$/g,'').replace(/[顆個組籃盒杯朵輛倍]$/,'').trim();
+  if(/^[0-9]{1,2}$/.test(plain))return Number(plain);
+  const digits='零一二三四五六七八九';
+  const normalized=plain.replaceAll('兩','二').replaceAll('〇','零');
+  if(normalized.length===1&&digits.includes(normalized))return digits.indexOf(normalized);
+  const match=/^([二三四五六七八九])?十([一二三四五六七八九])?$/.exec(normalized);
+  return match?(match[1]?digits.indexOf(match[1]):1)*10+(match[2]?digits.indexOf(match[2]):0):null;
+}
+function voice(){
+  const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!Recognition){speechStatus('此瀏覽器不支援口說辨識，請點選或輸入答案。');return}
+  stop();
+  const current=s, step=s.step, session=new Recognition();
+  recognition=session;session.lang='zh-TW';session.interimResults=false;
+  session.onstart=()=>speechStatus('正在聽，請說一個數字。');
+  session.onresult=event=>{
+    if(s!==current||s.step!==step||recognition!==session)return;
+    const value=parseSpoken(event.results[0][0].transcript);
+    if(value===null){speechStatus('沒有聽清楚。可以再說一次，或點選答案。');return}
+    s.answer=String(value);speechError='聽到 '+value+'。請確認後按「檢查答案」。';render();
+  };
+  session.onerror=event=>{if(event.error!=='aborted'&&recognition===session)speechStatus('目前無法辨識。請點選或輸入答案。')};
+  session.onend=()=>{if(recognition===session){recognition=null;if(speechError==='正在聽，請說一個數字。')speechStatus('可以再說一次，或點選答案。')}};
+  try{session.start()}catch{recognition=null;speechStatus('目前無法辨識。請點選或輸入答案。')}
+}
+const instructions=['拖曳蘋果，或先點蘋果再按「放入」。','按「再加一籃」，看看多了多少。','跟著圖畫，找出加法和乘法算式。'];
+function dialog(title,content){
+  const el=$('dialog');el.innerHTML='<h2 id="dialog-title">'+t(title)+'</h2>'+content+'<p id="dialog-status" role="status"></p>'+btn('關閉','close');
+  if(!el.open)el.showModal();
+}
+const toggle=(name,label)=>'<label><input type="checkbox" data-pref="'+name+'" '+(prefs[name]?'checked':'')+'> '+t(label)+'</label>';
+const select=(name,label,options)=>'<label>'+t(label)+' <select data-pref="'+name+'">'+options.map(([v,l])=>'<option value="'+v+'" '+(String(prefs[name])===String(v)?'selected':'')+'>'+esc(l)+'</option>').join('')+'</select></label>';
+function settings(teacher=false){
+  dialog(teacher?'老師模式':'學習設定',
+    toggle('advanced','進階模式')+toggle('zy','顯示注音')+toggle('auto','自動讀題')+toggle('slow','慢速朗讀')+toggle('still','減少動畫')+
+    (teacher?toggle('lock','依序解鎖')+select('unit','練習單位量',units.map(n=>[n,n]))+select('max','最多幾組',numbered(1,9).map(n=>[n,n]))+
+      select('view','顯示方式',[['both','圖像和數字'],['pictures','圖像'],['numbers','數字']])+
+      '<p>'+t('選擇上課要用的學習站。')+'</p><div class="row">'+labels.map((label,i)=>btn(label,'teacherjump:'+i)).join('')+'</div><p class="row tools">'+(s?btn('重設這一站','resetstation'):'')+btn('清除學習紀錄','confirmclear')+'</p>':''));
+}
+const sketches=new Map();
+let drawing=null;
+function draw(){
+  const id=taskKey()+':'+s.step;
+  if(!sketches.has(id))sketches.set(id,{strokes:[],eraser:false,active:null});
+  drawing=sketches.get(id);
+  dialog('畫一畫', '<p>'+t('可以畫點點或圈圈，說說你怎麼想。')+'</p><canvas id="sketch" width="700" height="300" aria-label="畫圖區"></canvas><div class="row">'+btn('畫筆','pen')+btn('橡皮擦','eraser')+btn('復原','drawundo')+btn('清除畫圖','drawclear')+'</div>');
+  const canvas=$('sketch');
+  const point=event=>{
+    const bounds=canvas.getBoundingClientRect();
+    return [(event.clientX-bounds.left)/bounds.width*canvas.width,(event.clientY-bounds.top)/bounds.height*canvas.height];
+  };
+  canvas.onpointerdown=event=>{
+    if(!event.isPrimary)return;
+    canvas.setPointerCapture(event.pointerId);
+    drawing.active={erase:drawing.eraser,points:[point(event)]};
+    drawing.strokes.push(drawing.active);paint();
+  };
+  canvas.onpointermove=event=>{if(drawing.active&&canvas.hasPointerCapture(event.pointerId)){drawing.active.points.push(point(event));paint()}};
+  canvas.onpointerup=canvas.onpointercancel=()=>{drawing.active=null};
+  paint();
+}
+function paint(){
+  const canvas=$('sketch'),ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(const stroke of drawing.strokes){
+    ctx.globalCompositeOperation=stroke.erase?'destination-out':'source-over';
+    ctx.strokeStyle='#174b63';ctx.lineWidth=stroke.erase?24:5;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.beginPath();const [x,y]=stroke.points[0];ctx.moveTo(x,y);ctx.lineTo(x+.01,y);
+    for(const point of stroke.points.slice(1))ctx.lineTo(...point);
+    ctx.stroke();
+  }
+}
+function demoHint(m){
+  const unit=m.unit===5?4:5, groups=m.groups===2?3:2;
+  if(m.kind==='place'||m.kind==='build'){
+    dialog('看看示範','<p>'+t('先放一朵花，再一朵一朵放，直到花束有 3 朵。')+'</p><div class="tray">'+glyph('flower').repeat(3)+'</div><p>'+t('關閉說明，回去試一次。')+'</p>');return;
+  }
+  const related=m.kind==='compare'
+    ?'<p>'+t('多一束，就多 '+unit+' 朵花。')+'</p>'
+    :'<p>'+t(unit+' 的 '+groups+' 倍是 '+unit*groups+'。')+'</p><p>'+unit+' × '+groups+' ＝ '+unit*groups+'</p>';
+  dialog('看看示範','<p>'+t('每束 '+unit+' 朵花，有 '+groups+' 束。')+'</p><div class="board">'+('<div class="tray">'+glyph('flower').repeat(unit)+'</div>').repeat(groups)+'</div><p>'+Array(groups).fill(unit).join(' ＋ ')+' ＝ '+unit*groups+'</p>'+related+'<p>'+t('關閉說明，回去試一次。')+'</p>');
+}
+let previousCards=null;
+document.addEventListener('click',event=>{
+  const el=event.target.closest('[data-act]');
+  if(!el||el.disabled)return;
+  const [action,arg]=el.dataset.act.split(':');
+  if(action==='home')return home();
+  if(action==='start')return enter(0);
+  if(action==='resume'&&saved){s=validState(saved);message='';render(true);autoRead();return}
+  if(action==='station'&&allowed(+arg))return enter(+arg);
+  if(action==='zy'){prefs.zy=!prefs.zy;save();render();return}
+  if(action==='settings'||action==='teacher')return settings(action==='teacher');
+  if(action==='instructions')return dialog('操作說明','<ol>'+instructions.map(line=>'<li>'+t(line)+'</li>').join('')+'</ol>'+btn('讀操作說明','readinstructions'));
+  if(action==='readinstructions')return speak(instructions.join(''));
+  if(action==='close'){$('dialog').close();return}
+  if(action==='teacherjump'){$('dialog').close();return enter(+arg,+arg===3?prefs.unit:2)}
+  if(action==='confirmclear')return dialog('清除學習紀錄','<p>'+t('確定清除這台裝置上的進度？')+'</p>'+btn('確定清除','wipe'));
+  if(action==='wipe'){stop();done={};saved=null;s=null;visited=false;sketches.clear();$('dialog').close();save();render();return}
+  if(!s)return;
+  const m=task();
+  switch(action){
+    case 'unit':return enter(3,+arg);
+    case 'resetstation':delete done[taskKey()];$('dialog').close();return enter(s.station,s.unit);
+    case 'next':return next();
+    case 'back':return back();
+    case 'read':return speak(m.text);
+    case 'stop':return stop();
+    case 'readsums':return speak(m.unit+' 乘以 '+m.groups+' 等於 '+m.total+'。');
+    case 'voice':return voice();
+    case 'hint':s.hint=Math.min(4,s.hint+1);if(s.station!==0&&s.hint===2)s.highlight=0;break;
+    case 'example':return demoHint(m);
+    case 'hide':s.hide=!s.hide;break;
+    case 'highlight':s.highlight=+arg;break;
+    case 'reveal':s.reveal=Math.min(3,s.reveal+1);break;
+    case 'answer':s.answer=arg;break;
+    case 'check':return check();
+    case 'observe':return finish(m.kind==='add'?'你找到數字對應的物品了！':'準備好拼算式了！');
+    case 'fruit':if(Date.now()<ignoreClickUntil)return;selectedFruit=selectedFruit===+arg?null:+arg;break;
+    case 'drop':return moveTo(+arg);
+    case 'take':{
+      const id=s.fruit.lastIndexOf(+arg+1);
+      if(id>=0){previousMove=[...s.fruit];s.fruit[id]=0;message=''}
+      break;
+    }
+    case 'undo':if(previousMove!==null){if(s.station===3)s.built=previousMove;else s.fruit=previousMove;previousMove=null;message=''}break;
+    case 'build':{
+      const amount=s.built;
+      const value=Math.min(m.unit+1,Math.max(0,amount+Number(arg)));
+      previousMove=s.built;s.built=value;break;
+    }
+    case 'groups':{
+      const nextCount=Math.max(1,Math.min(limits(),s.groups+Number(arg)));
+      if(nextCount===s.groups)return;
+      resetTask();s.groups=nextCount;save();render();autoRead();return;
+    }
+    case 'slot':s.slot=+arg;break;
+    case 'card':
+      previousCards=[...s.cards];s.cards[s.slot]=+arg;s.slot=Math.min(2,s.slot+1);break;
+    case 'cardundo':if(previousCards){s.cards=previousCards;previousCards=null}break;
+    case 'remove':previousCards=[...s.cards];s.cards[s.slot]=null;break;
+    case 'clearcards':previousCards=[...s.cards];s.cards=[null,null,null];s.slot=0;break;
+    case 'count':{
+      stop();
+      if(prefs.advanced&&s.station===3&&s.step===7)s.hide=false;
+      let i=0;
+      const current=s, step=s.step;
+      const tick=()=>{
+        if(current!==s||s.step!==step)return;
+        if(i>=m.groups){s.highlight=-1;render();return}
+        s.highlight=i++;
+        message='數到第 '+i+' '+m.group+(i<m.groups?'，有 '+i*m.unit+' '+m.measure+'。':'。');
+        render();timer=setTimeout(tick,650);
+      };
+      tick();return;
+    }
+    case 'draw':return draw();
+    case 'pen':drawing.eraser=false;return speechStatus('已選畫筆。');
+    case 'eraser':drawing.eraser=true;return speechStatus('已選橡皮擦。');
+    case 'drawundo':drawing.strokes.pop();return paint();
+    case 'drawclear':drawing.strokes=[];return paint();
+    case 'words':return dialog('詞語解釋','<dl>'+[
+      ['一組','把物品放在一起，就成了一組。'],['一樣多','兩邊的數量相同。'],['倍','有幾個相同的組，就是每組數量的幾倍。'],['乘號','用 × 記錄有幾個相同的數量。']
+    ].map(([word,definition])=>'<dt><strong>'+t(word)+'</strong></dt><dd>'+t(definition)+'</dd>').join('')+'</dl>');
+    default:return;
+  }
+  save();render();
+  [...document.querySelectorAll('[data-act]')].find(node=>node.dataset.act===el.dataset.act)?.focus({preventScroll:true});
+});
+document.addEventListener('input',event=>{
+  if(event.target.id==='numeric'&&s){
+    s.answer=event.target.value.replace(/[０-９]/g,c=>String(c.charCodeAt(0)-65296)).replace(/[^0-9]/g,'');
+    event.target.value=s.answer;
+  }
+});
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Enter')return;
+  if(event.target.id==='numeric')check();
+  const action=event.target.dataset?.act;
+  if(action?.startsWith('drop:')&&!event.repeat){
+    event.preventDefault();
+    moveTo(Number(action.split(':')[1]));
+  }
+});
+document.addEventListener('change',event=>{
+  const name=event.target.dataset.pref;
+  if(!Object.hasOwn(defaults,name))return;
+  const value=event.target.type==='checkbox'?event.target.checked:event.target.value;
+  prefs[name]=typeof defaults[name]==='number'?Number(value):value;
+  if(s&&(name==='max'||name==='advanced')&&(s.station===1||s.station===3)&&s.groups>limits()){
+    s.groups=limits();resetTask();
+  }
+  save();render();
+});
+document.addEventListener('pointerdown',event=>{
+  const fruit=event.target.closest('[data-fruit]');
+  if(!fruit||!event.isPrimary||event.button!==0)return;
+  drag={id:+fruit.dataset.fruit,pointer:event.pointerId,x:event.clientX,y:event.clientY,moved:false};
+  fruit.setPointerCapture(event.pointerId);
+});
+document.addEventListener('pointermove',event=>{
+  if(!drag||drag.pointer!==event.pointerId)return;
+  if(Math.hypot(event.clientX-drag.x,event.clientY-drag.y)>8)drag.moved=true;
+  if(!drag.moved)return;
+  const over=document.elementFromPoint(event.clientX,event.clientY)?.closest('[data-basket]');
+  document.querySelectorAll('[data-basket]').forEach(b=>b.classList.toggle('drop',b===over&&Boolean(b.querySelector('[data-act^="drop:"]'))));
+});
+document.addEventListener('pointerup',event=>{
+  if(!drag||drag.pointer!==event.pointerId)return;
+  const old=drag;drag=null;
+  document.querySelectorAll('.drop').forEach(node=>node.classList.remove('drop'));
+  if(!old.moved)return;
+  ignoreClickUntil=Date.now()+250;
+  const over=document.elementFromPoint(event.clientX,event.clientY)?.closest('[data-basket]');
+  if(over?.querySelector('[data-act^="drop:"]')){selectedFruit=old.id;moveTo(+over.dataset.basket)}
+});
+document.addEventListener('pointercancel',()=>{drag=null;document.querySelectorAll('.drop').forEach(node=>node.classList.remove('drop'))});
+const readings=Object.fromEntries("記ㄐㄧˋ 號ㄏㄠˋ 同ㄊㄨㄥˊ 好ㄏㄠˇ 備ㄅㄟˋ 準ㄓㄨㄣˇ 台ㄊㄞˊ 去ㄑㄩˋ 直ㄓˊ 擦ㄘㄚ 皮ㄆㄧˊ 橡ㄒㄧㄤˋ 筆ㄅㄧˇ 區ㄑㄩ 怎ㄗㄣˇ 圈ㄑㄩㄢ 錄ㄌㄨˋ 紀ㄐㄧˋ 重ㄔㄨㄥˊ 課ㄎㄜˋ 擇ㄗㄜˊ 方ㄈㄤ 最ㄗㄨㄟˋ 單ㄉㄢ 練ㄌㄧㄢˋ 鎖ㄙㄨㄛˇ 序ㄒㄩˋ 依ㄧ 減ㄐㄧㄢˇ 速ㄙㄨˋ 慢ㄇㄢˋ 階ㄐㄧㄝ 閉ㄅㄧˋ 關ㄍㄨㄢ 跟ㄍㄣ 曳ㄧˋ 拖ㄊㄨㄛ 認ㄖㄣˋ 確ㄑㄩㄝˋ 楚ㄔㄨˇ 聽ㄊㄧㄥ 識ㄕˋ 辨ㄅㄧㄢˋ 口ㄎㄡˇ 援ㄩㄢˊ 支ㄓ 十ㄕˊ 九ㄐㄧㄡˇ 八ㄅㄚ 七ㄑㄧ 六ㄌㄧㄡˋ 五ㄨˇ 四ㄙˋ 三ㄙㄢ 二ㄦˋ 零ㄌㄧㄥˊ 前ㄑㄧㄢˊ 於ㄩˊ 沒ㄇㄟˊ 置ㄓˋ 文ㄨㄣˊ 目ㄇㄨˋ 無ㄨˊ 器ㄑㄧˋ 覽ㄌㄢˇ 瀏ㄌㄧㄡˊ 此ㄘˇ 成ㄔㄥˊ 寫ㄒㄧㄝˇ 分ㄈㄣ 等ㄉㄥˇ 或ㄏㄨㄛˋ 卡ㄎㄚˇ 張ㄓㄤ 也ㄧㄝˇ 你ㄋㄧˇ 釋ㄕˋ 解ㄐㄧㄝˇ 語ㄩˇ 詞ㄘˊ 畫ㄏㄨㄚˋ 上ㄕㄤˋ 像ㄒㄧㄤˋ 顯ㄒㄧㄢˇ 忙ㄇㄤˊ 朗ㄌㄤˇ 止ㄓˇ 停ㄊㄧㄥˊ 題ㄊㄧˊ 內ㄋㄟˋ 度ㄉㄨˋ 念ㄋㄧㄢˋ 概ㄍㄞˋ 模ㄇㄛˊ 師ㄕ 老ㄌㄠˇ 定ㄉㄧㄥˋ 設ㄕㄜˋ 音ㄧㄣ 注ㄓㄨˋ 範ㄈㄢˋ 另ㄌㄧㄥˋ 示ㄕˋ 提ㄊㄧˊ 指ㄓˇ 用ㄩㄥˋ 接ㄐㄧㄝ 己ㄐㄧˇ 幫ㄅㄤ 以ㄧˇ 可ㄎㄜˇ 那ㄋㄚˋ 只ㄓˇ 間ㄐㄧㄢ 中ㄓㄨㄥ 邊ㄅㄧㄢ 左ㄗㄨㄛˇ 位ㄨㄟˋ 框ㄎㄨㄤ 亮ㄌㄧㄤˋ 次ㄘˋ 兩ㄌㄧㄤˇ 增ㄗㄥ 新ㄒㄧㄣ 想ㄒㄧㄤˇ 要ㄧㄠˋ 需ㄒㄩ 先ㄒㄧㄢ 查ㄔㄚˊ 檢ㄐㄧㄢˇ 案ㄢˋ 答ㄉㄚˊ 輸ㄕㄨ 測ㄘㄜˋ 預ㄩˋ 少ㄕㄠˇ 積ㄐㄧ 後ㄏㄡˋ 相ㄒㄧㄤ 被ㄅㄟˋ 叫ㄐㄧㄠˋ 稱ㄔㄥ 名ㄇㄧㄥˊ 著˙ㄓㄜ 試ㄕˋ 讀ㄉㄨˊ 我ㄨㄛˇ 步ㄅㄨˋ 站ㄓㄢˋ 下ㄒㄧㄚˋ 頁ㄧㄝˋ 首ㄕㄡˇ 回ㄏㄨㄟˊ 就ㄐㄧㄡˋ 清ㄑㄧㄥ 除ㄔㄨˊ 移ㄧˊ 原ㄩㄢˊ 復ㄈㄨˋ 填ㄊㄧㄢˊ 在ㄗㄞˋ 正ㄓㄥˋ 白ㄅㄞˊ 空ㄎㄨㄥ 不ㄅㄨˋ 總ㄗㄨㄥˇ 量ㄌㄧㄤˋ 應ㄧㄥˋ 對ㄉㄨㄟˋ 取ㄑㄩˇ 到ㄉㄠˋ 入ㄖㄨˋ 藏ㄘㄤˊ 隱ㄧㄣˇ 已ㄧˇ 圖ㄊㄨˊ 品ㄆㄧㄣˇ 物ㄨˋ 選ㄒㄩㄢˇ 明ㄇㄧㄥˊ 說ㄕㄨㄛ 作ㄗㄨㄛˋ 操ㄘㄠ 續ㄒㄩˋ 繼ㄐㄧˋ 始ㄕˇ 開ㄎㄞ 密ㄇㄧˋ 祕ㄇㄧˋ 現ㄒㄧㄢˋ 發ㄈㄚ 玩ㄨㄢˊ 手ㄕㄡˇ 動ㄉㄨㄥˋ 起ㄑㄧˇ 務ㄨˋ 任ㄖㄣˋ 線ㄒㄧㄢˋ 路ㄌㄨˋ 習ㄒㄧˊ 學ㄒㄩㄝˊ 和ㄏㄜˊ 兔ㄊㄨˋ 了˙ㄌㄜ 買ㄇㄞˇ 按ㄢˋ 把ㄅㄚˇ 麼˙ㄇㄜ 什ㄕㄣˊ 表ㄅㄧㄠˇ 代ㄉㄞˋ 看ㄎㄢˋ 哪ㄋㄚˇ 它ㄊㄚ 找ㄓㄠˇ 字ㄗˋ 裡ㄌㄧˇ 連ㄌㄧㄢˊ 會ㄏㄨㄟˋ 加ㄐㄧㄚ 是ㄕˋ 這ㄓㄜˋ 嗎˙ㄇㄚ 都ㄉㄡ 吧˙ㄅㄚ 的˙ㄉㄜ 多ㄉㄨㄛ 樣ㄧㄤˋ 做ㄗㄨㄛˋ 再ㄗㄞˋ 第ㄉㄧˋ 進ㄐㄧㄣˋ 式ㄕˋ 算ㄙㄨㄢˋ 出ㄔㄨ 拼ㄆㄧㄣ 請ㄑㄧㄥˇ 幾ㄐㄧˇ 共ㄍㄨㄥˋ 每ㄇㄟˇ 盤ㄆㄢˊ 杯ㄅㄟ 格ㄍㄜˊ 優ㄧㄡ 心ㄒㄧㄣ 點ㄉㄧㄢˇ 盒ㄏㄜˊ 燒ㄕㄠ 魚ㄩˊ 章ㄓㄤ 有ㄧㄡˇ 車ㄔㄜ 輛ㄌㄧㄤˋ 個˙ㄍㄜ 輪ㄌㄨㄣˊ 放ㄈㄤˋ 束ㄕㄨˋ 朵ㄉㄨㄛˇ 花ㄏㄨㄚ 裝ㄓㄨㄤ 子˙ㄗ 籃ㄌㄢˊ 顆ㄎㄜ 果ㄍㄨㄛˇ 蘋ㄆㄧㄥˊ 索ㄙㄨㄛˇ 由ㄧㄡˊ 自ㄗˋ 術ㄕㄨˋ 身ㄕㄣ 變ㄅㄧㄢˋ 魔ㄇㄛˊ 數ㄕㄨˋ 倍ㄅㄟˋ 組ㄗㄨˇ 一ㄧ 立ㄌㄧˋ 建ㄐㄧㄢˋ 家ㄐㄧㄚ 險ㄒㄧㄢˇ 探ㄊㄢˋ 小ㄒㄧㄠˇ 法ㄈㄚˇ 乘ㄔㄥˊ".split(' ').map(entry=>[entry[0],entry.slice(1)]));
+const phrases={
+  '數一數':'ㄕㄨˇ ㄧˋ ㄕㄨˇ','數數':'ㄕㄨˇ ㄕㄨˇ','只數':'ㄓˇ ㄕㄨˇ','數到':'ㄕㄨˇ ㄉㄠˋ',
+  '一樣':'ㄧˊ ㄧㄤˋ','一個':'ㄧˊ ˙ㄍㄜ','一束':'ㄧˊ ㄕㄨˋ','一次':'ㄧˊ ㄘˋ','一組':'ㄧˋ ㄗㄨˇ',
+  '一籃':'ㄧˋ ㄌㄢˊ','一盒':'ㄧˋ ㄏㄜˊ','一輛':'ㄧˊ ㄌㄧㄤˋ','一盤':'ㄧˋ ㄆㄢˊ','一朵':'ㄧˋ ㄉㄨㄛˇ',
+  '一起':'ㄧˋ ㄑㄧˇ','一共':'ㄧˊ ㄍㄨㄥˋ','一下':'ㄧˊ ㄒㄧㄚˋ','不一樣':'ㄅㄨˋ ㄧˊ ㄧㄤˋ',
+  '不支援':'ㄅㄨˋ ㄓ ㄩㄢˊ','空白':'ㄎㄨㄥˋ ㄅㄞˊ','空位':'ㄎㄨㄥˋ ㄨㄟˋ','第一':'ㄉㄧˋ ㄧ'
+};
+const phrasePattern=new RegExp(Object.keys(phrases).sort((a,b)=>b.length-a.length).join('|'),'gu');
+function annotate(text){
+  const contextual=new Map();
+  for(const match of text.matchAll(phrasePattern))phrases[match[0]].split(' ').forEach((reading,i)=>contextual.set(match.index+i,reading));
+  return text.replace(/\p{Unified_Ideograph}/gu,(char,index)=>{
+    const reading=contextual.get(index)||readings[char];
+    if(!reading)throw new Error('Missing Zhuyin: '+char);
+    return '<ruby>'+char+'<rt aria-hidden="true">'+reading+'</rt></ruby>';
+  });
+}
+render();
+</script>
+</body>
+</html>
