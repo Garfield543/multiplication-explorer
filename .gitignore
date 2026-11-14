@@ -1,0 +1,11 @@
+# 本機環境與工具設定
+.env
+.env.*
+!.env.example
+node_modules/
+.codex/
+.claude/
+.gemini/
+__pycache__/
+.DS_Store
+Thumbs.db
