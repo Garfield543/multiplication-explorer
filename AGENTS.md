@@ -6,6 +6,7 @@
 - 專案用途與啟動方式見 `README.md`。實作以低年級學生練習 2、5、4、8 的乘法為範圍。
 - Obsidian 專案駕駛艙位於 `「2、5、4、8 的乘法」互動學習網頁/工作筆記.md`（相對於 vault 根目錄）。
 - GitHub 遠端以 `git remote -v` 為準。需要建立遠端時預設使用私有儲存庫。
+- 學生入口為 [GitHub Pages](https://garfield543.github.io/multiplication-explorer/)，發布來源為 `main` 分支根目錄。
 
 ## 固定規則
 
