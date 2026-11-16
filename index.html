@@ -5,6 +5,7 @@
 <title>乘法小小探險家</title>
 <style>
 :root{color-scheme:light;--ink:#182e2c;--muted:#4e655b;--green:#145747;--mint:#deefe3;--paper:#fffdf6;--line:#cbdacf;--gold:#ffe6a1}*{box-sizing:border-box}body{margin:0;background:#edf4e9;color:var(--ink);font:500 1.08rem/1.55 "Noto Sans TC","Microsoft JhengHei",sans-serif;min-height:100dvh}button,input,select{font:inherit;color:inherit}button,select{min-height:56px;padding:.55rem .95rem;border:2px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;touch-action:manipulation;font-weight:750}button:hover:not(:disabled){border-color:var(--green);background:#eff7ef}button.primary{background:var(--gold);border-color:#b38935;box-shadow:0 3px 0 #bb9445}button:disabled{opacity:.64;cursor:default}button[aria-pressed=true],.marked{border-color:#145747!important;box-shadow:0 0 0 3px #91c4a7;background:var(--mint)}:focus-visible{outline:3px solid #2a60b1;outline-offset:3px}header{background:#fffdf6;border-bottom:1px solid var(--line)}.bar,main{width:min(1100px,calc(100% - 32px));margin:auto}.bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.65rem 0;flex-wrap:wrap}.brand{font-weight:900;font-size:1.2rem}.row{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem}.bar button{min-height:56px}main{padding:1.4rem 0 3rem}.panel{padding:clamp(1rem,4vw,2.6rem);border:1px solid var(--line);background:var(--paper);border-radius:25px;box-shadow:0 8px 28px #17372112}.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center;min-height:420px}.hero-art{width:100%;max-height:310px}.hero p:first-child,.eyebrow{color:var(--green);font-weight:850}h1,h2,p{margin:0 0 .7rem}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.25;letter-spacing:-.035em}h2{font-size:clamp(1.5rem,4vw,2.15rem);line-height:1.55}.sub{font-size:1.25rem;color:var(--muted)}.map{margin:1rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}.map button{padding:.55rem .45rem}.meters{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;color:var(--muted)}progress{accent-color:var(--green);display:block;width:100%;height:12px}.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.85rem;margin:1rem 0}.basket{display:grid;align-content:space-between;gap:.35rem;min-width:0;padding:.6rem;border:2px solid #d3ccac;border-radius:17px;text-align:center;background:#fbf4db}.tray{min-height:64px;display:flex;align-content:center;justify-content:center;flex-wrap:wrap;gap:.2rem;padding:.4rem;background:repeating-linear-gradient(0deg,#e3b06d 0 5px,#f0c88c 5px 9px);border:2px solid #966537;border-radius:8px 8px 18px 18px}.group-counter{width:18px;height:18px;border-radius:50%;border:2px solid #323c64;background:#c2cef0}.changed-group{border:3px dashed var(--green);background:#e5f2e8}.removed-group{border-color:#965247;background:#fbebe4}.removed-group .tray{opacity:.48}.basket .row{justify-content:center}.token{width:38px;height:38px;vertical-align:middle}.fruit{min-width:56px;padding:.25rem;touch-action:none}.ghost{display:inline-block;border:2px dashed #774d26;border-radius:50%;width:32px;height:32px}.drop{border-color:#145747;background:#dcefe1}.pool{padding:.65rem;border-radius:12px;background:#e8f2f9;margin-top:1rem}.answer{margin:1rem 0}.num{min-width:56px;font-size:1.36rem;font-variant-numeric:tabular-nums}.numeric-label{display:inline-flex;align-items:center;gap:.4rem}.numeric{width:4.5rem;min-height:56px;border:2px solid var(--line);border-radius:12px;padding:.4rem}.message{background:#e5f2e8;border-left:4px solid #418166;padding:.6rem .8rem;border-radius:7px;margin:.8rem 0}.message:empty{display:none}.help{background:#fff0c6;padding:.75rem;border-radius:12px;margin:.75rem 0}.equation{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:1.55rem;margin:.8rem 0}.solution-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:.8rem 0}.alternate-solution{border-inline-start:2px solid var(--green);padding-inline-start:1rem}.tools{margin-top:1rem}.tools button{font-size:1rem}summary{cursor:pointer;min-height:42px;font-weight:bold}details{margin:.75rem 0}dialog{border:2px solid var(--line);border-radius:20px;padding:1.3rem;background:var(--paper);color:var(--ink);width:min(600px,calc(100% - 24px));max-height:90dvh}dialog::backdrop{background:#182e2c88}dialog label{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.55rem 0}input[type=checkbox]{width:23px;height:23px}canvas{width:100%;height:210px;display:block;background:white;border:2px solid var(--line);border-radius:12px;touch-action:none;margin:.6rem 0}ruby{ruby-align:center}rt{font-size:.45em;color:#365b51}body:not(.zy) rt{display:none}.pop{animation:appear .24s ease-out}@keyframes appear{from{transform:scale(.96);opacity:.6}to{transform:scale(1);opacity:1}}body.still *{animation:none!important}@media(prefers-reduced-motion:reduce){*{animation:none!important}}@media(max-width:680px){.hero{grid-template-columns:1fr;min-height:0}.hero-art{max-height:180px}.map{grid-template-columns:1fr 1fr}.board{grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr))}}@media(max-width:540px){.solution-pair{grid-template-columns:1fr}.alternate-solution{border-inline-start:0;border-block-start:2px solid var(--green);padding:1rem 0 0}}@media(max-width:380px){.bar,main{width:calc(100% - 18px)}.meters{grid-template-columns:1fr}.panel{padding:.8rem}}
+.add-basket{border-style:dashed;align-content:center;cursor:pointer}.add-basket .tray{font-size:1.75rem;font-weight:900;color:#253d34}.add-basket strong{display:block;margin-top:.4rem}
 </style>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
@@ -21,7 +22,8 @@
 "use strict";
 const $=id=>document.getElementById(id);
 const units=[2,5,4,8];
-const labels=['建立一組','倍數魔法','乘法變身術','自由探索','多一組、少一組','綜合練習'];
+const labels=['建立一組','倍數魔法','乘法變身術','自由探索','多一組、少一組','綜合練習','生活小店'];
+const route=[0,1,2,3,6,4,5];
 const themes={
   apple:['蘋果','顆','籃','籃子','裝'],
   flower:['花','朵','束','花束','放'],
@@ -44,12 +46,18 @@ const make=(station=0,unit=2)=>({
   station,unit,step:0,phase:0,groups:1,built:0,fruit:Array(6).fill(0),answer:'',cards:[null,null,null],slot:0,
   solved:false,reveal:0,highlight:-1,hint:0,hide:false
 });
-const lengths=[5,3,7,8,6,6];
+const lengths=[5,3,7,8,6,7,4];
 const taskKey=()=>s.station===3?'3:'+s.unit:String(s.station);
 function count(station,unit){return (done[station===3?'3:'+unit:String(station)]||[]).length}
 function unlocked(){return labels.slice(0,3).every((_,i)=>count(i)===lengths[i])}
 function allowed(station){
-  if(station===4&&prefs.lock)return unlocked()&&units.some(unit=>count(3,unit)===lengths[3]);return !prefs.lock||station===0||(station===3?unlocked():count(station-1)===lengths[station-1])}
+  if(station===undefined)return false;
+  if(!prefs.lock||station===0)return true;
+  if(station===3)return unlocked();
+  if(station===6)return unlocked()&&units.every(unit=>count(3,unit)===lengths[3]);
+  if(station===4)return count(6)===lengths[6]||count(4)>0||count(5)>0;
+  return count(station-1)===lengths[station-1];
+}
 function validState(value){
   if(!value||!at(value.station,0,lengths.length-1)||!units.includes(value.unit)||!at(value.step,0,lengths[value.station]-1)||!at(value.groups,1,9))return null;
   const clean=make(value.station,value.unit);
@@ -89,7 +97,7 @@ function finish(text){
   const k=taskKey();
   if(!task().followup)done[k]=[...new Set([...(done[k]||[]),s.step])];
   s.solved=true; s.hint=0; message=text;
-  if(s.station>=4&&['formula','roles'].includes(task().kind))return next();
+  if([4,5].includes(s.station)&&!task().amounts&&['formula','roles'].includes(task().kind))return next();
   save();render();
   document.querySelector('[data-act="next"]')?.focus({preventScroll:true});
 }
@@ -133,7 +141,26 @@ const mixedPractice=[
   {unit:2,groups:9,delta:0,group:'束',item:'氣球',measure:'個',kind:'formula'},
   {unit:5,groups:8,delta:-3,group:'盤',item:'餅乾',measure:'片',kind:'difference'}
 ];
+const shopPractice=[
+  {unit:5,group:'袋',item:'糖果',measure:'顆',amounts:[5,5,5]},
+  {unit:0,group:'袋',item:'糖果',measure:'顆',amounts:[5,4,5]},
+  {unit:0,group:'盒',item:'蛋糕',measure:'塊',amounts:[8,4]},
+  {unit:8,group:'盒',item:'蛋糕',measure:'塊',amounts:[8,8,8,8]}
+];
+const finalSituation={unit:0,group:'排',item:'書',measure:'本',amounts:[4,4,2]};
+function situationTask(data){
+  const {unit,group,item,measure,amounts}=data;
+  const groups=amounts.length, total=amounts.reduce((sum,n)=>sum+n,0);
+  const question=unit?'請拼出乘法算式。':'一共有幾'+measure+item+'？';
+  const context=amounts.map((n,i)=>'第 '+(i+1)+' '+group+'有 '+n+' '+measure+item).join('，')+'。';
+  return {...data,groups,total,answer:s.phase?total:Number(Boolean(unit)),answerUnit:measure,
+    kind:s.phase?(unit?'formula':'number'):'strategy',
+    text:context+(s.phase?question:'照現在的分法，可以用一道乘法算式表示全部的'+item+'嗎？'),
+    followup:s.phase===0,reason:unit?'每'+group+'都一樣多，可以用乘法求總數。':'每'+group+'的數量不一樣多，把各'+group+'的數量加起來。'};
+}
 function practiceTask(){
+  if(s.station===6)return situationTask(shopPractice[s.step]);
+  if(s.station===5&&s.step===mixedPractice.length)return situationTask(finalSituation);
   const guided=s.station===4;
   const data=guided?groupPractice[Math.floor(s.step/3)]:mixedPractice[s.step];
   const {unit,groups,delta,group,item,measure}=data;
@@ -168,7 +195,7 @@ function task(){
     question('第 1 籃有幾顆蘋果？','number',2),
     question('再做一籃一樣多的蘋果吧！','place',2),
     question('一共有幾籃？','number',2,m.group),
-    question('每籃都一樣多嗎？','yes',1)
+    question('每籃的蘋果都一樣多嗎？','yes',1)
   ][step];
   if(s.station===1)return [
     question(contextTotal,'number',m.total),
@@ -195,15 +222,18 @@ function task(){
     question('買了 '+m.groups+' '+m.group+(m.theme==='apple'?'蘋果':m.theme==='snack'?'章魚燒':m.theme==='flower'?'花':m.container)+'。'+context(m)+'一共有幾'+m.measure+'？','number',m.total)
   ][step];
 }
+function nextStation(){return route[route.indexOf(s.station)+1]}
+function nextUnit(){return units.find(unit=>count(3,unit)<lengths[3])}
 function next(){
   if(s.solved&&task().followup){
     s.phase=1;resetTask();save();render(true);autoRead();return;
   }
   if(!s.solved)return;
+  if(s.station===3&&task().kind==='compare'&&s.reveal&&s.groups<limits())s.groups++;
   if(s.step+1<lengths[s.station]){
     s.step++;s.phase=0;resetTask();save();render(true);autoRead();
-  }else if(s.station<2)enter(s.station+1);
-  else if(s.station<lengths.length-1&&allowed(s.station+1))enter(s.station+1);
+  }else if(s.station===3&&nextUnit()!==undefined)enter(3,nextUnit());
+  else if(allowed(nextStation()))enter(nextStation());
   else home();
 }
 function back(){
@@ -214,12 +244,12 @@ function back(){
     s.step--;
     if(s.station===0&&s.step<2)s.fruit=s.fruit.map(n=>n===2?0:n);
     resetTask();save();render(true);autoRead();
-  }else if(s.station>0)enter(s.station-1);
+  }else if(s.station>0)enter(route[route.indexOf(s.station)-1]);
   else home();
 }
 function rabbit(){return '<svg class="hero-art" role="img" aria-label="兔兔和蘋果籃" viewBox="0 0 400 280"><ellipse cx="200" cy="224" rx="181" ry="42" fill="#d4e9d2"/><circle cx="200" cy="132" r="124" fill="#f7eac4"/><path d="M141 122c-33-40-51-113-22-111 25 1 43 64 49 103m28-3c4-48 12-104 38-100 27 5 13 75-9 118" fill="#fefcf1" stroke="#26483e" stroke-width="4"/><path d="M143 84c-17-18-26-47-21-51 7-3 17 22 26 46m62-1c3-25 13-48 20-44 7 4 0 28-10 48" fill="#e8aaa5"/><ellipse cx="177" cy="220" rx="68" ry="48" fill="#fffdf5" stroke="#26483e" stroke-width="4"/><ellipse cx="179" cy="151" rx="77" ry="59" fill="#fffdf5" stroke="#26483e" stroke-width="4"/><circle cx="149" cy="145" r="6" fill="#26483e"/><circle cx="208" cy="145" r="6" fill="#26483e"/><ellipse cx="132" cy="163" rx="13" ry="7" fill="#ebb2a8"/><ellipse cx="225" cy="163" rx="13" ry="7" fill="#ebb2a8"/><path d="M171 155q8-6 16 0l-8 8z" fill="#a64c49"/><path d="M165 171q8 9 14-7 6 16 15 7" fill="none" stroke="#26483e" stroke-width="2.5" stroke-linecap="round"/><path d="M241 207q13-66 66-64 43 3 52 64" fill="none" stroke="#9d632d" stroke-width="11"/><use href="#apple" x="245" y="160" width="50" height="50"/><use href="#apple" x="289" y="156" width="49" height="49"/><use href="#apple" x="314" y="173" width="42" height="42"/><path d="M234 200h132l-13 47q-2 9-12 9h-82q-10 0-12-9z" fill="#d9a260" stroke="#885728" stroke-width="4"/><path d="M244 216h111m-107 13h103m-99 13h94" stroke="#f7d39b" stroke-width="4"/></svg>'}
 function map(){
-  return '<nav class="map" aria-label="學習路線">'+labels.map((label,i)=>i===3&&!allowed(i)?'':btn((i<3?(i+1)+'　':'')+label+(i!==3&&count(i)===lengths[i]?' ✓':''),'station:'+i,(!allowed(i)?'disabled ':'')+(s?.station===i?'aria-current="step"':'') )).join('')+'</nav>';
+  return '<nav class="map" aria-label="學習路線">'+route.map(i=>[labels[i],i]).map(([label,i])=>i===3&&!allowed(i)?'':btn((i<3?(i+1)+'　':'')+label+(i!==3&&count(i)===lengths[i]?' ✓':''),'station:'+i,(!allowed(i)?'disabled ':'')+(s?.station===i?'aria-current="step"':'') )).join('')+'</nav>';
 }
 function renderHero(){
   return '<section class="hero panel"><div><p>'+t('兔兔的點心任務')+'</p><h1>'+t('乘法小小探險家')+'</h1><p class="sub">'+t('一起動手玩，發現乘法的小祕密！')+'</p><div class="row">'+btn('開始探索','start','class="primary"')+(visited?btn('繼續學習','resume'):'')+btn('操作說明','instructions')+'</div></div>'+rabbit()+'</section>'+map();
@@ -241,7 +271,17 @@ function basket(m,i,amount,editable=false){
     editable?btn('放 1 '+m.measure,'build:1')+btn('取出','build:-1',amount?'':'disabled'):btn('看這一'+m.group,'highlight:'+i))+'</div>':'')+'</div>';
 }
 function practiceBoard(m){
-  if(m.kind==='roles'||s.hide)return '';
+  if(s.hide)return '';
+  if(m.amounts){
+    return '<div class="board">'+m.amounts.map((amount,i)=>{
+      const label=amount+' '+m.measure+m.item;
+      return '<div class="basket"><strong>'+t('第 '+(i+1)+' '+m.group)+'</strong>'+
+        (prefs.view==='numbers'?'':'<div class="tray" role="img" aria-label="'+esc(label)+'">'+
+          '<span class="group-counter" aria-hidden="true"></span>'.repeat(amount)+'</div>')+
+        (prefs.view==='pictures'?'':'<span>'+t(label)+'</span>')+'</div>';
+    }).join('')+'</div>';
+  }
+  if(m.kind==='roles')return '';
   const showChange=m.kind!=='formula', extra=m.delta>0;
   const shown=showChange?Math.max(m.groups,m.after):m.groups;
   const original=m.kind==='number'&&m.guided?'<p class="equation">'+t('原來：'+m.unit+' × '+m.groups+' ＝ '+m.total)+'</p>':'';
@@ -255,6 +295,15 @@ function practiceBoard(m){
   }).join('')+'</div>';
 }
 function practiceReview(m){
+  if(m.amounts){
+    if(m.kind==='strategy')return '<p class="help">'+t(m.reason)+'</p>';
+    const sum=m.amounts.join(' ＋ ')+' ＝ '+m.total;
+    const multiply=m.unit?equation(m):'';
+    return '<p class="equation">'+t(sum)+'</p>'+multiply+
+      (s.station===5?'<div class="help"><h3>'+t('我會用乘法')+'</h3><ol>'+
+        ['先看每組是不是一樣多。','找出每組有幾個、有幾組。','每組數量 × 組數 ＝ 總數。','每組數量不一樣多，就把各組數量加起來。'].map(line=>'<li>'+t(line)+'</li>').join('')+
+        '</ol><p>'+t('想一想：生活中還有哪些可以用乘法算的情形？')+'</p></div>':'');
+  }
   if(m.kind==='formula'||m.kind==='roles')return '';
   if(m.kind==='difference'){
     const larger=Math.max(m.groups,m.after), smaller=Math.min(m.groups,m.after);
@@ -285,7 +334,12 @@ function board(m){
   }
   const editable=m.kind==='build'&&!s.solved;
   const amount=m.kind==='build'?s.built:m.unit;
-  return '<div class="board">'+numbered(0,m.groups-1).map(i=>basket(m,i,amount,editable)).join('')+'</div>';
+  const compareBaskets=m.kind==='compare';
+  const shown=m.groups+Number(compareBaskets&&s.reveal>0);
+  const addButton=compareBaskets&&!s.reveal&&!s.solved?
+    '<button type="button" class="basket add-basket" data-act="add-basket">'+
+      '<span class="tray" aria-hidden="true">＋</span><strong>'+t(s.station===1?'再加一籃':'再多一'+m.group)+'</strong></button>':'';
+  return '<div class="board">'+numbered(0,shown-1).map(i=>basket(m,i,amount,editable)).join('')+addButton+'</div>';
 }
 function addition(m,partial=false){
   const n=partial?Math.max(1,m.groups-1):m.groups;
@@ -329,10 +383,23 @@ function controls(m){
     let recap=s.station>=4?practiceReview(m):'';
     if(s.station<4&&(m.kind==='formula'||m.kind==='demo'))recap=equation(m);
     if(s.station===1&&s.step<2)recap=representation(m);
-    if(m.kind==='add')recap=addition(m)+'<p>'+t('有 '+m.groups+' 個 '+m.unit+'，是 '+m.unit+' 的 '+m.groups+' 倍。')+'</p>';
+    if(m.kind==='add'){
+      const summary=s.station===3?'有（　）個 '+m.unit+'。':
+        '有 '+m.groups+' 個 '+m.unit+'，是 '+m.unit+' 的 '+m.groups+' 倍。';
+      recap=addition(m)+'<p>'+t(summary)+'</p>';
+    }
     if(m.kind==='compare')recap='<p>'+t('多一'+m.group+'，就多 '+m.unit+' '+m.measure+m.item+'。')+'</p>';
-    return recap+btn(!m.followup&&s.step+1===lengths[s.station]?(s.station===lengths.length-1||!allowed(s.station+1)?'回到首頁':s.station===2?'進入自由探索':'下一站'):'下一步','next','class="primary"');
+    let label='下一步';
+    if(!m.followup&&s.step+1===lengths[s.station]){
+      label=s.station===3&&nextUnit()!==undefined?'繼續練 '+nextUnit()+' 的乘法':
+        allowed(nextStation())?'前往'+labels[nextStation()]:'回到首頁';
+    }
+    return recap+btn(label,'next','class="primary"');
   }
+  if(m.kind==='strategy')return '<div class="row answer">'+
+    btn('可以','answer:1','aria-pressed="'+(s.answer==='1')+'"')+
+    btn('不可以','answer:0','aria-pressed="'+(s.answer==='0')+'"')+
+    btn('檢查答案','check','class="primary"')+'</div>';
   if(m.kind==='add')return addition(m)+btn('我找到了','observe','class="primary"');
   if(m.kind==='demo')return equation(m)+btn('讀算式','readsums')+btn('試著拼算式','observe','class="primary"')+
     '<details><summary>'+t('算式裡的名稱')+'</summary>'+t('每籃數量叫被乘數，籃數叫乘數，相乘後的總數叫積。')+'</details>';
@@ -346,10 +413,19 @@ function controls(m){
     '<div class="row answer">'+btn('檢查答案','check','class="primary"')+(m.kind==='place'||m.kind==='build'?btn('復原','undo'):m.kind==='number'&&s.station>0&&s.station<4?btn('一起數一數','count'):'')+'</div>';
 }
 function representation(m){
-  return '<div class="help">'+(s.reveal>=2||s.station===1&&s.step===1?'<p>'+t('有 '+m.groups+' 個 '+m.unit+'。')+'</p>':'')+addition(m)+
-  (s.reveal>=3||s.station===1&&s.step>=1?'<p>'+t(m.unit+' 的 '+m.groups+' 倍是 '+m.total+'。')+'</p>':btn(s.reveal===1?'看有幾個一樣多':'看倍數','reveal'))+'</div>';
+  const first = s.step===0;
+  const groups = first?'有（　）個 2。':'有 '+m.groups+' 個 '+m.unit+'。';
+  const detail = first?(s.reveal<2?btn('看有幾個一樣多','reveal'):''):
+    '<p>'+t(m.unit+' 的 '+m.groups+' 倍是 '+m.total+'。')+'</p>';
+  return '<div class="help">'+(!first||s.reveal>=2?'<p>'+t(groups)+'</p>':'')+addition(m)+detail+'</div>';
 }
 function hintPanel(m){
+  if(m.amounts&&s.hint){
+    const clue=m.kind==='strategy'?'比一比，每'+m.group+'的數量都一樣嗎？':
+      m.kind==='formula'?'找出每'+m.group+'的數量，再數有幾'+m.group+'。':'把每'+m.group+'的數量加起來。';
+    const support=s.hint>=2&&m.kind==='number'?'<p class="equation">'+t(m.amounts.slice(0,-1).join(' ＋ ')+' ＋ □')+'</p>':'';
+    return '<aside class="help"><p>'+t(clue)+'</p>'+support+'</aside>';
+  }
   if(s.station>=4&&s.hint){
     const clue=m.kind==='roles'?'從左到右找出每組數量、組數和總數。':
       m.kind==='groupsAfter'?'看圖，數一數現在有幾'+m.group+'。':
@@ -374,10 +450,10 @@ function render(focus=false){
   else{
     const m=task(), core=lengths.slice(0,3).reduce((sum,_,i)=>sum+count(i),0);
     const stats='<div class="meters"><div>'+t('概念進度')+' '+core+'／15<progress aria-label="概念進度" max="15" value="'+core+'"></progress></div><div>'+t('站內進度')+' '+count(s.station,s.unit)+'／'+lengths[s.station]+'<progress aria-label="站內進度" max="'+lengths[s.station]+'" value="'+count(s.station,s.unit)+'"></progress></div></div>';
-    const choose=s.station===3?'<div class="row">'+units.map(unit=>btn(unit+' 的乘法','unit:'+unit,'aria-pressed="'+(unit===s.unit)+'"')).join('')+'</div>':'';
+    const choose=s.station===3?'<div class="row">'+units.map(unit=>btn(unit+' 的乘法 '+count(3,unit)+'／'+lengths[3],'unit:'+unit,'aria-pressed="'+(unit===s.unit)+'"')).join('')+'</div>':'';
     $('app').innerHTML=map()+stats+'<section class="panel" aria-labelledby="prompt"><p class="eyebrow">'+t(s.station===3?s.unit+' 的乘法':labels[s.station])+'</p>'+choose+
       '<h2 id="prompt" tabindex="-1">'+t(m.text)+'</h2><div class="row">'+btn('讀題','read')+btn('停止朗讀','stop')+btn('我需要幫忙','hint')+(prefs.advanced&&s.station!==0&&!['build','roles'].includes(m.kind)?btn(s.hide?'顯示圖像':'隱藏圖像','hide'):'')+'</div>'+
-      hintPanel(m)+board(m)+(s.reveal&&s.station===1&&!s.solved?representation(m):'')+
+      hintPanel(m)+board(m)+(s.reveal&&s.station===1&&s.step===0&&!s.solved?representation(m):'')+
       '<div class="message" id="feedback" role="status">'+t(message)+'</div><p role="status" id="speech">'+t(speechError)+'</p>'+controls(m)+
       '<div class="row tools">'+btn('上一步','back')+btn('畫圖','draw')+btn('詞語解釋','words')+'</div></section>';
     if(focus)$('prompt').focus();
@@ -415,13 +491,12 @@ function check(){
       feedback='你算出的總數也是 '+m.total+'！再看看這題，每'+m.group+'有幾'+m.measure+'？一共有幾'+m.group+'？';
     }
   }else{
-    if(!s.answer){message=m.kind==='yes'?'請選一個答案。':'選一張數字卡，或輸入答案。';render();return}
+    if(!s.answer){message=['yes','strategy'].includes(m.kind)?'請選一個答案。':'選一張數字卡，或輸入答案。';render();return}
     correct=Number(s.answer)===m.answer;
   }
   if(correct){
     if(s.station===1&&s.step===0)s.reveal=1;
-    if(m.kind==='compare'&&s.station===1&&s.groups<limits())s.groups++;
-    if(m.kind==='compare'&&s.station===3&&s.groups<limits())s.groups++;
+    if(m.kind==='compare'){s.reveal=1;s.highlight=m.groups}
     const praise=m.kind==='formula'?'你把等量分組寫成乘法了！':
       m.kind==='compare'?'你發現多一'+m.group+'會多多少了！':
       s.station===0&&s.step===4?'你找到兩籃一樣多的蘋果了！':
@@ -450,7 +525,7 @@ function speechStatus(text){
   if($('dialog-status'))$('dialog-status').innerHTML=t(text);
 }
 function autoRead(){if(prefs.auto&&s)speak(task().text.replaceAll('×','乘以'))}
-const instructions=['拖曳蘋果，或先點蘋果再按「放入」。','按「再加一籃」，看看多了多少。','跟著圖畫，找出加法和乘法算式。'];
+const instructions=['拖曳蘋果，或先點蘋果再按「放入」。','按「再加一籃」，看看多了多少。','跟著圖畫，找出加法和乘法算式。','到生活小店，先看各組是不是一樣多，再選計算方法。'];
 function dialog(title,content){
   const el=$('dialog');el.innerHTML='<h2 id="dialog-title">'+t(title)+'</h2>'+content+'<p id="dialog-status" role="status"></p>'+btn('關閉','close');
   if(!el.open)el.showModal();
@@ -462,7 +537,7 @@ function settings(teacher=false){
     toggle('advanced','進階模式')+toggle('zy','顯示注音')+toggle('auto','自動讀題')+toggle('slow','慢速朗讀')+toggle('still','減少動畫')+
     (teacher?toggle('lock','依序解鎖')+select('unit','練習單位量',units.map(n=>[n,n]))+select('max','最多幾組',numbered(1,9).map(n=>[n,n]))+
       select('view','顯示方式',[['both','圖像和數字'],['pictures','圖像'],['numbers','數字']])+
-      '<p>'+t('選擇上課要用的學習站。')+'</p><div class="row">'+labels.map((label,i)=>btn(label,'teacherjump:'+i)).join('')+'</div><p class="row tools">'+(s?btn('重設這一站','resetstation'):'')+btn('清除學習紀錄','confirmclear')+'</p>':''));
+      '<p>'+t('選擇上課要用的學習站。')+'</p><div class="row">'+route.map(i=>btn(labels[i],'teacherjump:'+i)).join('')+'</div><p class="row tools">'+(s?btn('重設這一站','resetstation'):'')+btn('清除學習紀錄','confirmclear')+'</p>':''));
 }
 const sketches=new Map();
 let drawing=null;
@@ -537,6 +612,12 @@ document.addEventListener('click',event=>{
     case 'hint':s.hint=Math.min(4,s.hint+1);if(s.station!==0&&s.hint===2)s.highlight=0;break;
     case 'example':return demoHint(m);
     case 'hide':s.hide=!s.hide;break;
+    case 'add-basket':
+      if(m.kind!=='compare'||s.solved||s.reveal)return;
+      s.reveal=1;s.highlight=m.groups;
+      save();render();
+      document.querySelector('[data-act="highlight:'+m.groups+'"]')?.focus({preventScroll:true});
+      return;
     case 'highlight':s.highlight=+arg;break;
     case 'reveal':s.reveal=Math.min(3,s.reveal+1);break;
     case 'answer':s.answer=arg;break;
@@ -642,13 +723,13 @@ document.addEventListener('pointerup',event=>{
   if(over?.querySelector('[data-act^="drop:"]')){selectedFruit=old.id;moveTo(+over.dataset.basket)}
 });
 document.addEventListener('pointercancel',()=>{drag=null;document.querySelectorAll('.drop').forEach(node=>node.classList.remove('drop'))});
-const readings=Object.fromEntries("種ㄓㄨㄥˇ 右ㄧㄡˋ 根ㄍㄣ 據ㄐㄩˋ 各ㄍㄜˋ 較ㄐㄧㄠˋ 來ㄌㄞˊ 綜ㄗㄨㄥ 合ㄏㄜˊ 袋ㄉㄞˋ 彈ㄉㄢˋ 珠ㄓㄨ 粉ㄈㄣˇ 枝ㄓ 包ㄅㄠ 貼ㄊㄧㄝ 紙ㄓˇ 排ㄆㄞˊ 椅ㄧˇ 氣ㄑㄧˋ 球ㄑㄧㄡˊ 餅ㄅㄧㄥˇ 乾ㄍㄢ 片ㄆㄧㄢˋ 又ㄧㄡˋ 拿ㄋㄚˊ 走ㄗㄡˇ 還ㄏㄞˊ 剩ㄕㄥˋ 比ㄅㄧˇ 從ㄘㄨㄥˊ 今ㄐㄧㄣ 記ㄐㄧˋ 號ㄏㄠˋ 同ㄊㄨㄥˊ 好ㄏㄠˇ 備ㄅㄟˋ 準ㄓㄨㄣˇ 台ㄊㄞˊ 去ㄑㄩˋ 直ㄓˊ 擦ㄘㄚ 皮ㄆㄧˊ 橡ㄒㄧㄤˋ 筆ㄅㄧˇ 區ㄑㄩ 怎ㄗㄣˇ 圈ㄑㄩㄢ 錄ㄌㄨˋ 紀ㄐㄧˋ 重ㄔㄨㄥˊ 課ㄎㄜˋ 擇ㄗㄜˊ 方ㄈㄤ 最ㄗㄨㄟˋ 單ㄉㄢ 練ㄌㄧㄢˋ 鎖ㄙㄨㄛˇ 序ㄒㄩˋ 依ㄧ 減ㄐㄧㄢˇ 速ㄙㄨˋ 慢ㄇㄢˋ 階ㄐㄧㄝ 閉ㄅㄧˋ 關ㄍㄨㄢ 跟ㄍㄣ 曳ㄧˋ 拖ㄊㄨㄛ 認ㄖㄣˋ 確ㄑㄩㄝˋ 楚ㄔㄨˇ 聽ㄊㄧㄥ 識ㄕˋ 辨ㄅㄧㄢˋ 口ㄎㄡˇ 援ㄩㄢˊ 支ㄓ 十ㄕˊ 九ㄐㄧㄡˇ 八ㄅㄚ 七ㄑㄧ 六ㄌㄧㄡˋ 五ㄨˇ 四ㄙˋ 三ㄙㄢ 二ㄦˋ 零ㄌㄧㄥˊ 前ㄑㄧㄢˊ 於ㄩˊ 沒ㄇㄟˊ 置ㄓˋ 文ㄨㄣˊ 目ㄇㄨˋ 無ㄨˊ 器ㄑㄧˋ 覽ㄌㄢˇ 瀏ㄌㄧㄡˊ 此ㄘˇ 成ㄔㄥˊ 寫ㄒㄧㄝˇ 分ㄈㄣ 等ㄉㄥˇ 或ㄏㄨㄛˋ 卡ㄎㄚˇ 張ㄓㄤ 也ㄧㄝˇ 你ㄋㄧˇ 釋ㄕˋ 解ㄐㄧㄝˇ 語ㄩˇ 詞ㄘˊ 畫ㄏㄨㄚˋ 上ㄕㄤˋ 像ㄒㄧㄤˋ 顯ㄒㄧㄢˇ 忙ㄇㄤˊ 朗ㄌㄤˇ 止ㄓˇ 停ㄊㄧㄥˊ 題ㄊㄧˊ 內ㄋㄟˋ 度ㄉㄨˋ 念ㄋㄧㄢˋ 概ㄍㄞˋ 模ㄇㄛˊ 師ㄕ 老ㄌㄠˇ 定ㄉㄧㄥˋ 設ㄕㄜˋ 音ㄧㄣ 注ㄓㄨˋ 範ㄈㄢˋ 另ㄌㄧㄥˋ 示ㄕˋ 提ㄊㄧˊ 指ㄓˇ 用ㄩㄥˋ 接ㄐㄧㄝ 己ㄐㄧˇ 幫ㄅㄤ 以ㄧˇ 可ㄎㄜˇ 那ㄋㄚˋ 只ㄓˇ 間ㄐㄧㄢ 中ㄓㄨㄥ 邊ㄅㄧㄢ 左ㄗㄨㄛˇ 位ㄨㄟˋ 框ㄎㄨㄤ 亮ㄌㄧㄤˋ 次ㄘˋ 兩ㄌㄧㄤˇ 增ㄗㄥ 新ㄒㄧㄣ 想ㄒㄧㄤˇ 要ㄧㄠˋ 需ㄒㄩ 先ㄒㄧㄢ 查ㄔㄚˊ 檢ㄐㄧㄢˇ 案ㄢˋ 答ㄉㄚˊ 輸ㄕㄨ 測ㄘㄜˋ 預ㄩˋ 少ㄕㄠˇ 積ㄐㄧ 後ㄏㄡˋ 相ㄒㄧㄤ 被ㄅㄟˋ 叫ㄐㄧㄠˋ 稱ㄔㄥ 名ㄇㄧㄥˊ 著˙ㄓㄜ 試ㄕˋ 讀ㄉㄨˊ 我ㄨㄛˇ 步ㄅㄨˋ 站ㄓㄢˋ 下ㄒㄧㄚˋ 頁ㄧㄝˋ 首ㄕㄡˇ 回ㄏㄨㄟˊ 就ㄐㄧㄡˋ 清ㄑㄧㄥ 除ㄔㄨˊ 移ㄧˊ 原ㄩㄢˊ 復ㄈㄨˋ 填ㄊㄧㄢˊ 在ㄗㄞˋ 正ㄓㄥˋ 白ㄅㄞˊ 空ㄎㄨㄥ 不ㄅㄨˋ 總ㄗㄨㄥˇ 量ㄌㄧㄤˋ 應ㄧㄥˋ 對ㄉㄨㄟˋ 取ㄑㄩˇ 到ㄉㄠˋ 入ㄖㄨˋ 藏ㄘㄤˊ 隱ㄧㄣˇ 已ㄧˇ 圖ㄊㄨˊ 品ㄆㄧㄣˇ 物ㄨˋ 選ㄒㄩㄢˇ 明ㄇㄧㄥˊ 說ㄕㄨㄛ 作ㄗㄨㄛˋ 操ㄘㄠ 續ㄒㄩˋ 繼ㄐㄧˋ 始ㄕˇ 開ㄎㄞ 密ㄇㄧˋ 祕ㄇㄧˋ 現ㄒㄧㄢˋ 發ㄈㄚ 玩ㄨㄢˊ 手ㄕㄡˇ 動ㄉㄨㄥˋ 起ㄑㄧˇ 務ㄨˋ 任ㄖㄣˋ 線ㄒㄧㄢˋ 路ㄌㄨˋ 習ㄒㄧˊ 學ㄒㄩㄝˊ 和ㄏㄜˊ 兔ㄊㄨˋ 了˙ㄌㄜ 買ㄇㄞˇ 按ㄢˋ 把ㄅㄚˇ 麼˙ㄇㄜ 什ㄕㄣˊ 表ㄅㄧㄠˇ 代ㄉㄞˋ 看ㄎㄢˋ 哪ㄋㄚˇ 它ㄊㄚ 找ㄓㄠˇ 字ㄗˋ 裡ㄌㄧˇ 連ㄌㄧㄢˊ 會ㄏㄨㄟˋ 加ㄐㄧㄚ 是ㄕˋ 這ㄓㄜˋ 嗎˙ㄇㄚ 都ㄉㄡ 吧˙ㄅㄚ 的˙ㄉㄜ 多ㄉㄨㄛ 樣ㄧㄤˋ 做ㄗㄨㄛˋ 再ㄗㄞˋ 第ㄉㄧˋ 進ㄐㄧㄣˋ 式ㄕˋ 算ㄙㄨㄢˋ 出ㄔㄨ 拼ㄆㄧㄣ 請ㄑㄧㄥˇ 幾ㄐㄧˇ 共ㄍㄨㄥˋ 每ㄇㄟˇ 盤ㄆㄢˊ 杯ㄅㄟ 格ㄍㄜˊ 優ㄧㄡ 心ㄒㄧㄣ 點ㄉㄧㄢˇ 盒ㄏㄜˊ 燒ㄕㄠ 魚ㄩˊ 章ㄓㄤ 有ㄧㄡˇ 車ㄔㄜ 輛ㄌㄧㄤˋ 個˙ㄍㄜ 輪ㄌㄨㄣˊ 放ㄈㄤˋ 束ㄕㄨˋ 朵ㄉㄨㄛˇ 花ㄏㄨㄚ 裝ㄓㄨㄤ 子˙ㄗ 籃ㄌㄢˊ 顆ㄎㄜ 果ㄍㄨㄛˇ 蘋ㄆㄧㄥˊ 索ㄙㄨㄛˇ 由ㄧㄡˊ 自ㄗˋ 術ㄕㄨˋ 身ㄕㄣ 變ㄅㄧㄢˋ 魔ㄇㄛˊ 數ㄕㄨˋ 倍ㄅㄟˋ 組ㄗㄨˇ 一ㄧ 立ㄌㄧˋ 建ㄐㄧㄢˋ 家ㄐㄧㄚ 險ㄒㄧㄢˇ 探ㄊㄢˋ 小ㄒㄧㄠˇ 法ㄈㄚˇ 乘ㄔㄥˊ".split(' ').map(entry=>[entry[0],entry.slice(1)]));
+const readings=Object.fromEntries("些ㄒㄧㄝ 求ㄑㄧㄡˊ 照ㄓㄠˋ 計ㄐㄧˋ 道ㄉㄠˋ 店ㄉㄧㄢˋ 糖ㄊㄤˊ 蛋ㄉㄢˋ 糕ㄍㄠ 塊ㄎㄨㄞˋ 書ㄕㄨ 本ㄅㄣˇ 情ㄑㄧㄥˊ 形ㄒㄧㄥˊ 街ㄐㄧㄝ 活ㄏㄨㄛˊ 生ㄕㄥ 全ㄑㄩㄢˊ 部ㄅㄨˋ 往ㄨㄤˇ 商ㄕㄤ 種ㄓㄨㄥˇ 右ㄧㄡˋ 根ㄍㄣ 據ㄐㄩˋ 各ㄍㄜˋ 較ㄐㄧㄠˋ 來ㄌㄞˊ 綜ㄗㄨㄥ 合ㄏㄜˊ 袋ㄉㄞˋ 彈ㄉㄢˋ 珠ㄓㄨ 粉ㄈㄣˇ 枝ㄓ 包ㄅㄠ 貼ㄊㄧㄝ 紙ㄓˇ 排ㄆㄞˊ 椅ㄧˇ 氣ㄑㄧˋ 球ㄑㄧㄡˊ 餅ㄅㄧㄥˇ 乾ㄍㄢ 片ㄆㄧㄢˋ 又ㄧㄡˋ 拿ㄋㄚˊ 走ㄗㄡˇ 還ㄏㄞˊ 剩ㄕㄥˋ 比ㄅㄧˇ 從ㄘㄨㄥˊ 今ㄐㄧㄣ 記ㄐㄧˋ 號ㄏㄠˋ 同ㄊㄨㄥˊ 好ㄏㄠˇ 備ㄅㄟˋ 準ㄓㄨㄣˇ 台ㄊㄞˊ 去ㄑㄩˋ 直ㄓˊ 擦ㄘㄚ 皮ㄆㄧˊ 橡ㄒㄧㄤˋ 筆ㄅㄧˇ 區ㄑㄩ 怎ㄗㄣˇ 圈ㄑㄩㄢ 錄ㄌㄨˋ 紀ㄐㄧˋ 重ㄔㄨㄥˊ 課ㄎㄜˋ 擇ㄗㄜˊ 方ㄈㄤ 最ㄗㄨㄟˋ 單ㄉㄢ 練ㄌㄧㄢˋ 鎖ㄙㄨㄛˇ 序ㄒㄩˋ 依ㄧ 減ㄐㄧㄢˇ 速ㄙㄨˋ 慢ㄇㄢˋ 階ㄐㄧㄝ 閉ㄅㄧˋ 關ㄍㄨㄢ 跟ㄍㄣ 曳ㄧˋ 拖ㄊㄨㄛ 認ㄖㄣˋ 確ㄑㄩㄝˋ 楚ㄔㄨˇ 聽ㄊㄧㄥ 識ㄕˋ 辨ㄅㄧㄢˋ 口ㄎㄡˇ 援ㄩㄢˊ 支ㄓ 十ㄕˊ 九ㄐㄧㄡˇ 八ㄅㄚ 七ㄑㄧ 六ㄌㄧㄡˋ 五ㄨˇ 四ㄙˋ 三ㄙㄢ 二ㄦˋ 零ㄌㄧㄥˊ 前ㄑㄧㄢˊ 於ㄩˊ 沒ㄇㄟˊ 置ㄓˋ 文ㄨㄣˊ 目ㄇㄨˋ 無ㄨˊ 器ㄑㄧˋ 覽ㄌㄢˇ 瀏ㄌㄧㄡˊ 此ㄘˇ 成ㄔㄥˊ 寫ㄒㄧㄝˇ 分ㄈㄣ 等ㄉㄥˇ 或ㄏㄨㄛˋ 卡ㄎㄚˇ 張ㄓㄤ 也ㄧㄝˇ 你ㄋㄧˇ 釋ㄕˋ 解ㄐㄧㄝˇ 語ㄩˇ 詞ㄘˊ 畫ㄏㄨㄚˋ 上ㄕㄤˋ 像ㄒㄧㄤˋ 顯ㄒㄧㄢˇ 忙ㄇㄤˊ 朗ㄌㄤˇ 止ㄓˇ 停ㄊㄧㄥˊ 題ㄊㄧˊ 內ㄋㄟˋ 度ㄉㄨˋ 念ㄋㄧㄢˋ 概ㄍㄞˋ 模ㄇㄛˊ 師ㄕ 老ㄌㄠˇ 定ㄉㄧㄥˋ 設ㄕㄜˋ 音ㄧㄣ 注ㄓㄨˋ 範ㄈㄢˋ 另ㄌㄧㄥˋ 示ㄕˋ 提ㄊㄧˊ 指ㄓˇ 用ㄩㄥˋ 接ㄐㄧㄝ 己ㄐㄧˇ 幫ㄅㄤ 以ㄧˇ 可ㄎㄜˇ 那ㄋㄚˋ 只ㄓˇ 間ㄐㄧㄢ 中ㄓㄨㄥ 邊ㄅㄧㄢ 左ㄗㄨㄛˇ 位ㄨㄟˋ 框ㄎㄨㄤ 亮ㄌㄧㄤˋ 次ㄘˋ 兩ㄌㄧㄤˇ 增ㄗㄥ 新ㄒㄧㄣ 想ㄒㄧㄤˇ 要ㄧㄠˋ 需ㄒㄩ 先ㄒㄧㄢ 查ㄔㄚˊ 檢ㄐㄧㄢˇ 案ㄢˋ 答ㄉㄚˊ 輸ㄕㄨ 測ㄘㄜˋ 預ㄩˋ 少ㄕㄠˇ 積ㄐㄧ 後ㄏㄡˋ 相ㄒㄧㄤ 被ㄅㄟˋ 叫ㄐㄧㄠˋ 稱ㄔㄥ 名ㄇㄧㄥˊ 著˙ㄓㄜ 試ㄕˋ 讀ㄉㄨˊ 我ㄨㄛˇ 步ㄅㄨˋ 站ㄓㄢˋ 下ㄒㄧㄚˋ 頁ㄧㄝˋ 首ㄕㄡˇ 回ㄏㄨㄟˊ 就ㄐㄧㄡˋ 清ㄑㄧㄥ 除ㄔㄨˊ 移ㄧˊ 原ㄩㄢˊ 復ㄈㄨˋ 填ㄊㄧㄢˊ 在ㄗㄞˋ 正ㄓㄥˋ 白ㄅㄞˊ 空ㄎㄨㄥ 不ㄅㄨˋ 總ㄗㄨㄥˇ 量ㄌㄧㄤˋ 應ㄧㄥˋ 對ㄉㄨㄟˋ 取ㄑㄩˇ 到ㄉㄠˋ 入ㄖㄨˋ 藏ㄘㄤˊ 隱ㄧㄣˇ 已ㄧˇ 圖ㄊㄨˊ 品ㄆㄧㄣˇ 物ㄨˋ 選ㄒㄩㄢˇ 明ㄇㄧㄥˊ 說ㄕㄨㄛ 作ㄗㄨㄛˋ 操ㄘㄠ 續ㄒㄩˋ 繼ㄐㄧˋ 始ㄕˇ 開ㄎㄞ 密ㄇㄧˋ 祕ㄇㄧˋ 現ㄒㄧㄢˋ 發ㄈㄚ 玩ㄨㄢˊ 手ㄕㄡˇ 動ㄉㄨㄥˋ 起ㄑㄧˇ 務ㄨˋ 任ㄖㄣˋ 線ㄒㄧㄢˋ 路ㄌㄨˋ 習ㄒㄧˊ 學ㄒㄩㄝˊ 和ㄏㄜˊ 兔ㄊㄨˋ 了˙ㄌㄜ 買ㄇㄞˇ 按ㄢˋ 把ㄅㄚˇ 麼˙ㄇㄜ 什ㄕㄣˊ 表ㄅㄧㄠˇ 代ㄉㄞˋ 看ㄎㄢˋ 哪ㄋㄚˇ 它ㄊㄚ 找ㄓㄠˇ 字ㄗˋ 裡ㄌㄧˇ 連ㄌㄧㄢˊ 會ㄏㄨㄟˋ 加ㄐㄧㄚ 是ㄕˋ 這ㄓㄜˋ 嗎˙ㄇㄚ 都ㄉㄡ 吧˙ㄅㄚ 的˙ㄉㄜ 多ㄉㄨㄛ 樣ㄧㄤˋ 做ㄗㄨㄛˋ 再ㄗㄞˋ 第ㄉㄧˋ 進ㄐㄧㄣˋ 式ㄕˋ 算ㄙㄨㄢˋ 出ㄔㄨ 拼ㄆㄧㄣ 請ㄑㄧㄥˇ 幾ㄐㄧˇ 共ㄍㄨㄥˋ 每ㄇㄟˇ 盤ㄆㄢˊ 杯ㄅㄟ 格ㄍㄜˊ 優ㄧㄡ 心ㄒㄧㄣ 點ㄉㄧㄢˇ 盒ㄏㄜˊ 燒ㄕㄠ 魚ㄩˊ 章ㄓㄤ 有ㄧㄡˇ 車ㄔㄜ 輛ㄌㄧㄤˋ 個˙ㄍㄜ 輪ㄌㄨㄣˊ 放ㄈㄤˋ 束ㄕㄨˋ 朵ㄉㄨㄛˇ 花ㄏㄨㄚ 裝ㄓㄨㄤ 子˙ㄗ 籃ㄌㄢˊ 顆ㄎㄜ 果ㄍㄨㄛˇ 蘋ㄆㄧㄥˊ 索ㄙㄨㄛˇ 由ㄧㄡˊ 自ㄗˋ 術ㄕㄨˋ 身ㄕㄣ 變ㄅㄧㄢˋ 魔ㄇㄛˊ 數ㄕㄨˋ 倍ㄅㄟˋ 組ㄗㄨˇ 一ㄧ 立ㄌㄧˋ 建ㄐㄧㄢˋ 家ㄐㄧㄚ 險ㄒㄧㄢˇ 探ㄊㄢˋ 小ㄒㄧㄠˇ 法ㄈㄚˇ 乘ㄔㄥˊ".split(' ').map(entry=>[entry[0],entry.slice(1)]));
 const phrases={
   '數一數':'ㄕㄨˇ ㄧˋ ㄕㄨˇ','數數':'ㄕㄨˇ ㄕㄨˇ','只數':'ㄓˇ ㄕㄨˇ','數到':'ㄕㄨˇ ㄉㄠˋ',
   '一樣':'ㄧˊ ㄧㄤˋ','一個':'ㄧˊ ˙ㄍㄜ','一束':'ㄧˊ ㄕㄨˋ','一次':'ㄧˊ ㄘˋ','一組':'ㄧˋ ㄗㄨˇ',
   '一籃':'ㄧˋ ㄌㄢˊ','一盒':'ㄧˋ ㄏㄜˊ','一輛':'ㄧˊ ㄌㄧㄤˋ','一盤':'ㄧˋ ㄆㄢˊ','一朵':'ㄧˋ ㄉㄨㄛˇ',
   '一起':'ㄧˋ ㄑㄧˇ','一共':'ㄧˊ ㄍㄨㄥˋ','一下':'ㄧˊ ㄒㄧㄚˋ','不一樣':'ㄅㄨˋ ㄧˊ ㄧㄤˋ',
-  '不支援':'ㄅㄨˋ ㄓ ㄩㄢˊ','空白':'ㄎㄨㄥˋ ㄅㄞˊ','空位':'ㄎㄨㄥˋ ㄨㄟˋ','第一':'ㄉㄧˋ ㄧ'
+  '一道':'ㄧˊ ㄉㄠˋ','不支援':'ㄅㄨˋ ㄓ ㄩㄢˊ','空白':'ㄎㄨㄥˋ ㄅㄞˊ','空位':'ㄎㄨㄥˋ ㄨㄟˋ','第一':'ㄉㄧˋ ㄧ'
 };
 const phrasePattern=new RegExp(Object.keys(phrases).sort((a,b)=>b.length-a.length).join('|'),'gu');
 function annotate(text){
